@@ -1,0 +1,37 @@
+{
+  "name": "tcc",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "alert-node": "^0.2.1",
+    "body-parser": "^1.18.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "express-myconnection": "^1.0.4",
+    "express-session": "^1.11.3",
+    "gulp": "^3.9.1",
+    "morgan": "^1.8.2",
+    "mum": "^0.2.10-alpha.1",
+    "mysql": "^2.14.1",
+    "ng-gentelella": "^0.2.6",
+    "nodemon": "^1.12.1",
+    "popups": "^1.1.3",
+    "serve": "^6.1.0",
+    "serve-favicon": "^2.4.4",
+    "connect-flash": "^0.1.1"
+  },
+  "devDependencies": {},
+  "config": {
+    "port": "8000"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "debug": "node --debug app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": ""
+}
