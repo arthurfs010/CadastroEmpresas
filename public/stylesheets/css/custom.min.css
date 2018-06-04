@@ -1034,6 +1034,10 @@ article.media {
 *,:after,:before {
     box-sizing: border-box
 }
+#map {
+        height: 400px;
+        width: 100%;
+}
 
 #integration-list {
     width: 100%;
