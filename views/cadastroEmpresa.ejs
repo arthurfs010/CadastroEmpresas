@@ -114,12 +114,26 @@
                     zoom: 15,
                     center: cascavel
                   });
+
                   var marker = new google.maps.Marker({
                     position: cascavel,
                     map: map
                   });
-                  marker.addListener('click', function() {
 
+                  function selecionaLocal(latLng, map) {
+                  	 marker = new google.maps.Marker({
+    									position: latLng,
+    									map: map
+  									});
+  									map.panTo(latLng);
+									}
+
+                  map.addListener('click', function(a) {
+                  	marker.setMap(null);
+    								selecionaLocal(a.latLng, map);
+  								});
+
+                  marker.addListener('click', function() {
                     map.setCenter(marker.getPosition());
                   });
                 }
