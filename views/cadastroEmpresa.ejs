@@ -118,7 +118,7 @@
                   var marker = new google.maps.Marker({
                   });
 
-                  function selecionaLocal(latLng, map) { //cria o marcador no local
+                  function marcaLocal(latLng, map) { //cria o marcador no local
                   	 marker = new google.maps.Marker({
     									position: latLng,
     									map: map
@@ -128,7 +128,7 @@
 
                   map.addListener('click', function(a) { //adiciona o marcador no mapa ao clicar
                   	marker.setMap(null);
-    								selecionaLocal(a.latLng, map);
+    								marcaLocal(a.latLng, map);
   								});
 
                   marker.addListener('click', function() { //função que ao clicar no marcador centraliza o mesmo
