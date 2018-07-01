@@ -115,7 +115,12 @@
                     center: cascavel
                   });
 
+
                   var marker = new google.maps.Marker({
+                  });
+
+                  var infowindow = new google.maps.InfoWindow({
+                      content: latlongit
                   });
 
                   function marcaLocal(latLng, map) { //cria o marcador no local
@@ -123,6 +128,7 @@
     									position: latLng,
     									map: map
   									});
+                    var latlongit = latLng;
   									//map.panTo(latLng); //centraliza o mapa no marcador
 									}
 
