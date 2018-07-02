@@ -119,33 +119,30 @@
                   var marker = new google.maps.Marker({
                   });
 
-                  //var contentString = '';
+                  var contentString = '';
 
-                  //var infowindow = new google.maps.InfoWindow({
-                  //    content: contentString
-                  //});
+                  var infowindow = new google.maps.InfoWindow({
+                      content: contentString
+                  });
 
 
                   function marcaLocal(latLng, map) { //cria o marcador no local
-                  	 marker = new google.maps.Marker({
+                  	marker = new google.maps.Marker({
     									position: latLng,
     									map: map
   									});
-                    //contentString = ''+ latLng +'';
   									//map.panTo(latLng); //centraliza o mapa no marcador
 									}
 
                   map.addListener('click', function(a) { //adiciona o marcador no mapa ao clicar
                   	marker.setMap(null);
     								marcaLocal(a.latLng, map);
-  								});
-                  
+                    map.setCenter(marker.getPosition());
 
-                  marker.addListener('click', function() { //função de click no marcador
-                    alert('clicked');
-                    //map.setCenter(marker.getPosition());
-                    //infowindow.open(map, marker);
-                  });
+                    infowindow.open(map, marker);
+  								});
+
+
                 }
                 </script>
                 <script async defer
