@@ -119,16 +119,19 @@
                   var marker = new google.maps.Marker({
                   });
 
-                  var infowindow = new google.maps.InfoWindow({
-                      content: latlongit
-                  });
+                  //var contentString = '';
+
+                  //var infowindow = new google.maps.InfoWindow({
+                  //    content: contentString
+                  //});
+
 
                   function marcaLocal(latLng, map) { //cria o marcador no local
                   	 marker = new google.maps.Marker({
     									position: latLng,
     									map: map
   									});
-                    
+                    //contentString = ''+ latLng +'';
   									//map.panTo(latLng); //centraliza o mapa no marcador
 									}
 
@@ -136,9 +139,12 @@
                   	marker.setMap(null);
     								marcaLocal(a.latLng, map);
   								});
+                  
 
-                  marker.addListener('click', function() { //função que ao clicar no marcador centraliza o mesmo
-                    map.setCenter(marker.getPosition());
+                  marker.addListener('click', function() { //função de click no marcador
+                    alert('clicked');
+                    //map.setCenter(marker.getPosition());
+                    //infowindow.open(map, marker);
                   });
                 }
                 </script>
