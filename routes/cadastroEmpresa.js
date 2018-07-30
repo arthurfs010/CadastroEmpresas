@@ -23,46 +23,55 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', function (req, res) {
-  /*req.getConnection(function (err, connection) {
+  req.getConnection(function (err, connection) {
     if (connection) {
-      connection.query("SELECT * FROM tb_unidade WHERE nome = ?", [req.body.nome],
+      connection.query("SELECT * FROM tb_empresa WHERE cnpj = ?", [req.body.cnpj],
         function (err, rows) {
           if (rows.length != 0) {
-            connection.query("UPDATE tb_unidade SET nome = ?, telefone = ?, endereco = ?, numero = ?, id_bairro = ?, valorMensalidade = ? WHERE nome = ?",
+            connection.query("UPDATE tb_empresa SET nomeEmpresa = ?, endereco = ?, responsavel = ?, login = ?, senha = ?, telefone = ?, email = ?, latitude = ?, longitude = ? WHERE cnpj = ?",
               [
-                req.body.nome,
-                req.body.telefone,
+                req.body.nomeEmpresa,
                 req.body.endereco,
-                req.body.numero,
-                req.body.bairro,
-                req.body.valorMensalidade,
-                req.body.nome
+                req.body.responsavel,
+                req.body.login,
+                req.body.senha,
+                req.body.telefone,
+                req.body.email,
+                req.body.latitude,
+                req.body.longitude,
+                req.body.cnpj
+
               ], function (err, result) {
                 if (err) {
                   console.log("Erro: %s ", err);
                   res.sendStatus(404);
                 }
                 if (result) {
-                  res.redirect('/unidade');
+                  res.redirect('/cadastroEmpresa');
                 }
               }
             );
           } else {
-            connection.query("INSERT INTO tb_unidade(nome, telefone, endereco, numero, id_bairro, valorMensalidade) VALUES (?,?,?,?,?,?)",
+            connection.query("INSERT INTO tb_empresa(nomeEmpresa, cnpj, endereco, responsavel, login, senha, telefone, email, latitude, longitude) VALUES (?,?,?,?,?,?)",
               [
-                req.body.nome,
-                req.body.telefone,
+                req.body.nomeEmpresa,
+                req.body.cnpj,
                 req.body.endereco,
-                req.body.numero,
-                req.body.bairro,
-                req.body.valorMensalidade
+                req.body.responsavel,
+                req.body.login,
+                req.body.senha,
+                req.body.telefone,
+                req.body.email,
+                req.body.latitude,
+                req.body.longitude,
+
               ], function (err, result) {
                 if (err) {
                   console.log("Erro: %s ", err);
                   res.sendStatus(404);
                 }
                 if (result) {
-                  res.redirect('/unidade');
+                  res.redirect('/cadastroEmpresa');
                 }
               }
             );
@@ -74,7 +83,7 @@ router.post('/', function (req, res) {
         }
       );
     }
-  });*/
+  });
 });
 
 module.exports = router;
