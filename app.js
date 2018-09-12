@@ -26,11 +26,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Função que faz a conexão ao banco de dados
 app.use(
   connection(mysql, {
-    host: 'localhost',
+    host: '192.168.25.26',
     user: 'root',
-    password: 'qwe123mudar',
+    password: 'bv1020',
     port: 3306,
-    database: 'db_lazercascavel',
+    database: 'buscavaga',
     multipleStatements: true
   }, 'request')
 );
