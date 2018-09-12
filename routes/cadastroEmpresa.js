@@ -28,7 +28,7 @@ router.post('/', function (req, res) {
       connection.query("SELECT * FROM empresa WHERE cnpj = ?", [req.body.cnpj],
         function (err, rows) {
           if (rows.length != 0) {
-            connection.query("UPDATE empresa SET nome_empresa = ?, endereco = ?, responsavel = ?, login = ?, senha = ?, telefone_fixo = ?, email = ?, latitude = ?, longitude = ? WHERE cnpj = ?",
+            connection.query("UPDATE empresa SET nome_empresa = ?, endereco = ?, responsavel = ?, login = ?, senha = ?, telefone_cel = ?, email = ?, latitude = ?, longitude = ? WHERE cnpj = ?",
               [
                 req.body.nomeEmpresa,
                 req.body.endereco,
@@ -52,7 +52,7 @@ router.post('/', function (req, res) {
               }
             );
           } else {
-            connection.query("INSERT INTO empresa(nome_empresa, cnpj, endereco, responsavel, login, senha, telefone_fixo, email, latitude, longitude) VALUES (?,?,?,?,?,?)",
+            connection.query("INSERT INTO empresa(nome_empresa, cnpj, endereco, responsavel, login, senha, telefone_cel, email, latitude, longitude) VALUES (?,?,?,?,?,?)",
               [
                 req.body.nomeEmpresa,
                 req.body.cnpj,
