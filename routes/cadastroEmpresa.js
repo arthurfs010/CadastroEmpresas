@@ -43,7 +43,7 @@ router.post('/', function (req, res) {
 
               ], function (err, result) {
                 if (err) {
-                  console.log("Erro: %s ", err);
+                  console.log("Erro update: %s ", err);
                   res.sendStatus(404);
                 }
                 if (result) {
@@ -52,7 +52,7 @@ router.post('/', function (req, res) {
               }
             );
           } else {
-            connection.query("INSERT INTO empresa(nome_empresa, cnpj, endereco, responsavel, login, senha, telefone_cel, email, latitude, longitude) VALUES (?,?,?,?,?,?)",
+            connection.query("INSERT INTO empresa(nome_empresa, cnpj, endereco, responsavel, login, senha, telefone_cel, email, latitude, longitude) VALUES (?,?,?,?,?,?,?,?,?,?)",
               [
                 req.body.nomeEmpresa,
                 req.body.cnpj,
@@ -67,7 +67,7 @@ router.post('/', function (req, res) {
 
               ], function (err, result) {
                 if (err) {
-                  console.log("Erro: %s ", err);
+                  console.log("Erro insert: %s ", err);
                   res.sendStatus(404);
                 }
                 if (result) {
