@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Função que faz a conexão ao banco de dados
 app.use(
   connection(mysql, {
-    host: '192.168.25.26',
+    host: '10.15.3.88',
     user: 'root',
     password: 'bv1020',
     port: 3306,
