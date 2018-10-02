@@ -26,9 +26,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Função que faz a conexão ao banco de dados
 app.use(
   connection(mysql, {
-    host: '10.15.3.88',
+    host: 'localhost',
     user: 'root',
-    password: 'bv1020',
+    password: 'bv2018',
     port: 3306,
     database: 'buscavaga',
     multipleStatements: true
