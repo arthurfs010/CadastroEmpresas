@@ -28,55 +28,45 @@ router.get('/', function (req, res, next) {
 router.post('/', function (req, res) {
   req.getConnection(function (err, connection) {
     if (connection) {
-      connection.query("SELECT * FROM empresa WHERE cnpj = ?", [req.body.cnpj],
+      connection.query("SELECT * FROM parametros_empresa WHERE id_empresa = ? and tipo_veiculo = ?", [req.body.id_empresa, req.body.tipo],
         function (err, rows) {
           if (rows.length != 0) {
-            connection.query("UPDATE empresa SET nome_empresa = ?, endereco = ?, responsavel = ?, login = ?, senha = ?, telefone_fixo = ?, telefone_cel = ?, email = ?, latitude = ?, longitude = ? WHERE cnpj = ?",
+            connection.query("UPDATE parametros_empresa SET valor_meiahora = ?, valor_umahora = ?, valor_diaria = ?, valor_semana = ?, valor_mes = ? WHERE id_empresa = ? and tipo_veiculo = ?",
               [
-                req.body.nomeEmpresa,
-                req.body.endereco,
-                req.body.responsavel,
-                req.body.login,
-                req.body.senha,
-                req.body.telefone,
-                req.body.telefone_cel,
-                req.body.email,
-                req.body.latitude,
-                req.body.longitude,
-                req.body.cnpj
-
+                req.body.valor_meiahora,
+                req.body.valor_umahora,
+                req.body.valor_diaria,
+                req.body.valor_semana,
+                req.body.valor_mes,
+                req.body.id_empresa,
+                req.body.tipo_veiculo
               ], function (err, result) {
                 if (err) {
                   console.log("Erro update: %s ", err);
                   res.sendStatus(404);
                 }
                 if (result) {
-                  res.redirect('/cadastroEmpresa');
+                  res.redirect('/parametros');
                 }
               }
             );
           } else {
-            connection.query("INSERT INTO empresa(nome_empresa, cnpj, endereco, responsavel, login, senha, telefone_fixo, telefone_cel, email, latitude, longitude) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+            connection.query("INSERT INTO parametros_empresa(id_empresa, tipo_veiculo, valor_meiahora, valor_umahora, valor_diaria, valor_semana, valor_mes) VALUES (?,?,?,?,?,?,?)",
               [
-                req.body.nomeEmpresa,
-                req.body.cnpj,
-                req.body.endereco,
-                req.body.responsavel,
-                req.body.login,
-                req.body.senha,
-                req.body.telefone,
-                req.body.telefone_cel,
-                req.body.email,
-                req.body.latitude,
-                req.body.longitude,
-
+                req.body.id_empresa,
+                req.body.tipo_veiculo,
+                req.body.valor_meiahora,
+                req.body.valor_umahora,
+                req.body.valor_diaria,
+                req.body.valor_semana,
+                req.body.valor_mes
               ], function (err, result) {
                 if (err) {
                   console.log("Erro insert: %s ", err);
                   res.sendStatus(404);
                 }
                 if (result) {
-                  res.redirect('/cadastroEmpresa');
+                  res.redirect('/parametros');
                 }
               }
             );
