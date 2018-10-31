@@ -3,12 +3,14 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-  /*req.getConnection(function (err, connection) {
+  req.getConnection(function (err, connection) {
     if (connection) {
-      connection.query('SELECT * FROM tb_unidade ORDER BY nome; SELECT * FROM tb_bairro ORDER BY nome;', function (err, rows) {
+      connection.query('SELECT * FROM empresa ORDER BY id_empresa;', function (err, rows) {
         if (rows) {*/
-          res.render('parametros'
-          );/*
+          res.render('parametros', {
+            empresas: rows
+          }
+          );
         }
         if (err) {
           res.render('error', {
@@ -19,7 +21,7 @@ router.get('/', function (req, res, next) {
         }
       });
     }
-  });*/
+  });
 });
 
 router.post('/', function (req, res) {

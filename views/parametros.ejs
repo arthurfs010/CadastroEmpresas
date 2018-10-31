@@ -20,21 +20,30 @@
               <form method="post" action="" name="formulario" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                 <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="l_empresa"> Nome da empresa
-                  <span class="required">*</span>
-                </label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input type="text" id="nomeEmpresa" name="nomeEmpresa" required="required" class="form-control col-md-7 col-xs-12">
-                </div>
-              </div>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Empresa</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <select class="form-control" id="empresa" name="empresa">
+                        <option value=""> -- Selecione uma empresa -- </option>
+                        <% empresas.forEach(function (item) { %>
+                          <option value="<%=item.id%>">
+                            <%=item.nome%>
+                          </option>
+                          <% }) %>
+                      </select>
+                    </div>
+                  </div>
 
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="l_endereco"> Endereço
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="l_tipoveiculo"> Tipo do Veículo
                   <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input type="text" id="endereco" name="endereco" required="required" class="form-control col-md-7 col-xs-12">
-                </div>
+                    <select id="situacao" name="situacao" class="form-control">
+                      <option value=""> -- Selecione uma opção -- </option>
+                      <option value="C">Carro</option>
+                      <option value="M">Moto</option>
+                    </select>
+                  </div>
               </div>
 
               <div class="form-group">
