@@ -230,4 +230,4 @@ window.setTimeout(function() {
   });
 }, 6000);
 
-$('.dinheiro').mask('#.##0,00', {reverse: true});
+$('.dinheiro').mask('#.00', {reverse: true});
