@@ -28,7 +28,7 @@ router.get('/', function (req, res, next) {
 router.post('/', function (req, res) {
   req.getConnection(function (err, connection) {
     if (connection) {
-      connection.query("SELECT * FROM parametros_empresa WHERE id_empresa = ? and tipo_veiculo = ?", [req.body.id_empresa, req.body.tipo],
+      connection.query("SELECT * FROM parametros_empresa WHERE id_empresa = ? and tipo_veiculo = ?", [req.body.id_empresa, req.body.tipo_veiculo],
         function (err, rows) {
           if (rows.length != 0) {
             connection.query("UPDATE parametros_empresa SET valor_meiahora = ?, valor_umahora = ?, valor_diaria = ?, valor_semana = ?, valor_mes = ? WHERE id_empresa = ? and tipo_veiculo = ?",
