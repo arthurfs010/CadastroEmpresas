@@ -38,7 +38,7 @@
                   <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <select id="situacao" name="situacao" class="form-control">
+                    <select id="tipo" name="tipo" class="form-control">
                       <option value=""> -- Selecione uma opção -- </option>
                       <option value="C">Carro</option>
                       <option value="M">Moto</option>
@@ -47,81 +47,51 @@
               </div>
 
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="l_cnpj"> CNPJ
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="l_meiahora"> Valor da Meia Hora
                   <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input type="text" id="cnpj" name="cnpj" required="required" class="form-control col-md-7 col-xs-12" data-inputmask="'mask' : '99.999.999/9999-99'">
+                  <input type="number" id="valor_meiahora" name="valor_meiahora" required="required" class="form-control col-md-7 col-xs-12">
                 </div>
               </div>
 
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="l_responsavel"> Responsável
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="l_umahora"> Valor da Uma Hora
                   <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input type="text" id="responsavel" name="responsavel" required="required" class="form-control col-md-7 col-xs-12">
+                  <input type="number" id="valor_umahora" name="valor_umahora" required="required" class="form-control col-md-7 col-xs-12">
                 </div>
               </div>
 
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="l_login"> Login
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="l_diaria"> Valor da Diária
                   <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input type="text" id="login" name="login" required="required" class="form-control col-md-7 col-xs-12">
+                  <input type="number" id="valor_diaria" name="valor_diaria" required="required" class="form-control col-md-7 col-xs-12">
                 </div>
               </div>
 
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="l_senha"> Senha
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="l_semana"> Valor Semanal
                   <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input type="password" id="senha" name="senha" required="required" class="form-control col-md-7 col-xs-12">
+                  <input type="number" id="valor_semana" name="valor_semana" required="required" class="form-control col-md-7 col-xs-12">
                 </div>
               </div>
 
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="l_telefone"> Telefone Fixo
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="l_mes"> Valor Mensal
                   <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input type="text" id="telefone" name="telefone" required="required" class="form-control col-md-7 col-xs-12">
+                  <input type="number" id="valor_mes" name="valor_mes" required="required" class="form-control col-md-7 col-xs-12">
                 </div>
               </div>
-              <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="l_telefone"> Telefone Celular
-                  <span class="required">*</span>
-                </label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input type="text" id="telefone_cel" name="telefone_cel" required="required" class="form-control col-md-7 col-xs-12">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="l_email"> Email
-                  <span class="required">*</span>
-                </label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input type="text" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="l_latitude"> Latitude
-                  <span class="required">*</span>
-                </label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input type="text" id="latitude" name="latitude" required="required"  class="form-control col-md-7 col-xs-12">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="l_longitude"> Longitude
-                  <span class="required">*</span>
-                </label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input type="text" id="longitude" name="longitude" required="required"  class="form-control col-md-7 col-xs-12" >
-                </div>
-              </div>
+
+
 
                 <div class="ln_solid"></div>
                 <div class="form-group">
