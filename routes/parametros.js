@@ -6,7 +6,7 @@ router.get('/', function (req, res, next) {
   req.getConnection(function (err, connection) {
     if (connection) {
       connection.query('SELECT * FROM empresa ORDER BY id_empresa;', function (err, rows) {
-        if (rows) {*/
+        if (rows) {
           res.render('parametros', {
             empresas: rows
           }
