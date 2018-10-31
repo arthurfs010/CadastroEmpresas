@@ -60,7 +60,7 @@ app.use(function (err, req, res, next) {
 });
 
 
-var port = process.env.PORT || 80
+var port = process.env.PORT || 3000
 app.listen(port, function () {
   console.log('Servico inicializado utilizando a porta: %s', port)
 });
