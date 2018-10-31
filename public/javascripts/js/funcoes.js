@@ -229,3 +229,5 @@ window.setTimeout(function() {
       $(this).remove();
   });
 }, 6000);
+
+$('.dinheiro').mask('#.##0,00', {reverse: true});

@@ -14,10 +14,10 @@ router.get('/', function (req, res, next) {
         }
         if (err) {
           res.render('parametros');
-          /*res.render('error', {
+          res.render('error', {
             page_title: "Algo deu errado!",
             error: err
-          });*/
+          });
           console.log("Error Selecting : %s ", err);
         }
       });
