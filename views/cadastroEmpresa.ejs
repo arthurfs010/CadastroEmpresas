@@ -36,6 +36,7 @@
                     <table id="datatable-buttons" class="table table-striped table-bordered bulk_action dataTables_wrapper">
                       <thead>
                         <tr>
+                          <th>ID</th>
                           <th>Nome</th>
                           <th>Endereço</th>
                           <th>Responsavel</th>
@@ -48,6 +49,7 @@
                         <% if(empresas.length) { %>
                           <% for(var i = 0; i < empresas.length; i++) { %>
                             <tr onclick="funcaoEmpresas('<%= empresas[i].id_empresa %>', '<%= empresas[i].nome_empresa %>', '<%= empresas[i].cnpj %>', '<%= empresas[i].endereco%>', '<%= empresas[i].responsavel %>', '<%= empresas[i].telefone_fixo %>', '<%= empresas[i].telefone_cel %>', '<%= empresas[i].email %>', '<%= empresas[i].latitude %>', '<%= empresas[i].longitude %>')">
+                              <td><%=empresas[i].id_empresa%></td>
                               <td><%=empresas[i].nome_empresa%></td>
                               <td><%=empresas[i].endereco%></td>
                               <td><%=empresas[i].responsavel%></td>
