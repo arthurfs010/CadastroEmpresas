@@ -33,7 +33,7 @@ router.post('/', function (req, res) {
           if (rows.length != 0) {
             connection.query("UPDATE empresa SET nome_empresa = ?, endereco = ?, cnpj = ?, responsavel = ?, login = ?, senha = ?, telefone_fixo = ?, telefone_cel = ?, email = ?, latitude = ?, longitude = ? WHERE id_empresa = ?",
               [
-                req.body.nome_Empresa,
+                req.body.nome_empresa,
                 req.body.endereco,
                 req.body.cnpj,
                 req.body.responsavel,
@@ -60,7 +60,7 @@ router.post('/', function (req, res) {
           } else {
             connection.query("INSERT INTO empresa(nome_empresa, cnpj, endereco, responsavel, login, senha, telefone_fixo, telefone_cel, email, latitude, longitude) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
               [
-                req.body.nome_Empresa,
+                req.body.nome_empresa,
                 req.body.cnpj,
                 req.body.endereco,
                 req.body.responsavel,
