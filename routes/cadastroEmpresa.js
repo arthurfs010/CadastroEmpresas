@@ -3,12 +3,15 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-  /*req.getConnection(function (err, connection) {
+  req.getConnection(function (err, connection) {
     if (connection) {
-      connection.query('SELECT * FROM tb_unidade ORDER BY nome; SELECT * FROM tb_bairro ORDER BY nome;', function (err, rows) {
-        if (rows) {*/
-          res.render('cadastroEmpresa'
-          );/*
+      connection.query('SELECT * FROM empresa;', function (err, rows) {
+        if (rows) {
+          res.render('cadastroEmpresa', {
+            empresas: rows,
+            sucesso: req.flash('sucesso')
+          }
+          );
         }
         if (err) {
           res.render('error', {
@@ -19,7 +22,7 @@ router.get('/', function (req, res, next) {
         }
       });
     }
-  });*/
+  });
 });
 
 router.post('/', function (req, res) {
@@ -30,12 +33,12 @@ router.post('/', function (req, res) {
           if (rows.length != 0) {
             connection.query("UPDATE empresa SET nome_empresa = ?, endereco = ?, responsavel = ?, login = ?, senha = ?, telefone_fixo = ?, telefone_cel = ?, email = ?, latitude = ?, longitude = ? WHERE cnpj = ?",
               [
-                req.body.nomeEmpresa,
+                req.body.nome_Empresa,
                 req.body.endereco,
                 req.body.responsavel,
                 "null",
                 "null",
-                req.body.telefone,
+                req.body.telefone_fixo,
                 req.body.telefone_cel,
                 req.body.email,
                 req.body.latitude,
@@ -48,6 +51,7 @@ router.post('/', function (req, res) {
                   res.sendStatus(404);
                 }
                 if (result) {
+                  req.flash('sucesso', 'Empresa salva com sucesso!');
                   res.redirect('/cadastroEmpresa');
                 }
               }
@@ -55,13 +59,13 @@ router.post('/', function (req, res) {
           } else {
             connection.query("INSERT INTO empresa(nome_empresa, cnpj, endereco, responsavel, login, senha, telefone_fixo, telefone_cel, email, latitude, longitude) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
               [
-                req.body.nomeEmpresa,
+                req.body.nome_Empresa,
                 req.body.cnpj,
                 req.body.endereco,
                 req.body.responsavel,
                 "null",
                 "null",
-                req.body.telefone,
+                req.body.telefone_fixo,
                 req.body.telefone_cel,
                 req.body.email,
                 req.body.latitude,
@@ -73,6 +77,7 @@ router.post('/', function (req, res) {
                   res.sendStatus(404);
                 }
                 if (result) {
+                  req.flash('sucesso', 'Empresa salva com sucesso!');
                   res.redirect('/cadastroEmpresa');
                 }
               }

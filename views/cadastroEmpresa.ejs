@@ -14,7 +14,53 @@
               <div class="clearfix"></div>
             </div>
 
+            <% if(sucesso.length> 0){%>
+            <div class="alert alert-success">
+              <strong><%= sucesso %></strong>
+            </div>
+            <% } %>
+
             <div class="x_content">
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Empresas Cadastradas</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <table id="datatable-buttons" class="table table-striped table-bordered bulk_action dataTables_wrapper">
+                      <thead>
+                        <tr>
+                          <th>Nome</th>
+                          <th>Endereço</th>
+                          <th>Responsavel</th>
+                          <th>Telefone Celular</th>
+						              <th></th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <% if(alunos.length) { %>
+                          <% for(var i = 0; i < alunos.length; i++) { %>
+                            <tr onclick="funcaoEmpresas('<%= empresas[i].id_empresa %>', '<%= empresas[i].nome_empresa %>', '<%= empresas[i].cnpj %>', '<%= empresas[i].endereco%>', '<%= empresas[i].responsavel %>', '<%= empresas[i].telefone_fixo %>', '<%= empresas[i].telefone_cel %>', '<%= empresas[i].email %>', '<%= empresas[i].latitude %>', '<%= empresas[i].longitude %>')">
+                              <td><%=empresas[i].nome_empresa%></td>
+                              <td><%=empresas[i].endereco%></td>
+                              <td><%=empresas[i].responsavel%></td>
+                              <td><%=empresas[i].telefone_cel%></td>
+                              <td><input type='button' value='Editar' onclick="funcaoEmpresas('<%= empresas[i].id_empresa %>', '<%= empresas[i].nome_empresa %>', '<%= empresas[i].cnpj %>', '<%= empresas[i].endereco%>', '<%= empresas[i].responsavel %>', '<%= empresas[i].telefone_fixo %>', '<%= empresas[i].telefone_cel %>', '<%= empresas[i].email %>', '<%= empresas[i].latitude %>', '<%= empresas[i].longitude %>')"></td>
+                            </tr>
+                              <% }} %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <br />
 
 
               <form method="post" action="" name="formulario" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
@@ -24,7 +70,7 @@
                   <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input type="text" id="nomeEmpresa" name="nomeEmpresa" required="required" class="form-control col-md-7 col-xs-12">
+                  <input type="text" id="nome_empresa" name="nome_empresa" required="required" class="form-control col-md-7 col-xs-12">
                 </div>
               </div>
 
@@ -80,7 +126,7 @@
                   <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input type="text" id="telefone" name="telefone" required="required" class="telefone form-control">
+                  <input type="text" id="telefone_fixo" name="telefone_fixo" required="required" class="telefone form-control">
                 </div>
               </div>
               <div class="form-group">
