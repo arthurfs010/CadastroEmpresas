@@ -48,7 +48,7 @@
                       <tbody>
                         <% if(empresas.length) { %>
                           <% for(var i = 0; i < empresas.length; i++) { %>
-                            <tr onclick="funcaoEmpresas('<%= empresas[i].id_empresa %>', '<%= empresas[i].nome_empresa %>', '<%= empresas[i].cnpj %>', '<%= empresas[i].endereco%>', '<%= empresas[i].responsavel %>', '<%= empresas[i].telefone_fixo %>', '<%= empresas[i].telefone_cel %>', '<%= empresas[i].email %>', '<%= empresas[i].latitude %>', '<%= empresas[i].longitude %>')">
+                            <tr>
                               <td><%=empresas[i].id_empresa%></td>
                               <td><%=empresas[i].nome_empresa%></td>
                               <td><%=empresas[i].endereco%></td>
