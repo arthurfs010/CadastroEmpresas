@@ -231,5 +231,5 @@ window.setTimeout(function() {
 }, 6000);
 
 $('.dinheiro').mask('#.00', {reverse: true});
-$('.telefone').mask('(99)9999-9999');
-$('.telefonecel').mask('(99)9 9999-9999');
+$('.telefone').mask('(99) 9999-9999');
+$('.telefonecel').mask('(99) 9 9999-9999');
