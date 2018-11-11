@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
   req.getConnection(function (err, connection) {
     if (connection) {
-      connection.query('SELECT * FROM empresa;', function (err, rows) {
+      connection.query('SELECT * FROM empresa order by id_empresa;', function (err, rows) {
         if (rows) {
           res.render('cadastroEmpresa', {
             empresas: rows,
