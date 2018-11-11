@@ -31,7 +31,7 @@ router.post('/', function (req, res) {
       connection.query("SELECT * FROM empresa WHERE id_empresa = ?", [req.body.id_empresa],
         function (err, rows) {
           if (rows.length != 0) {
-            connection.query("UPDATE empresa SET nome_empresa = ?, endereco = ?, cnpj=? responsavel = ?, login = ?, senha = ?, telefone_fixo = ?, telefone_cel = ?, email = ?, latitude = ?, longitude = ? WHERE id_empresa = ?",
+            connection.query("UPDATE empresa SET nome_empresa = ?, endereco = ?, cnpj = ?, responsavel = ?, login = ?, senha = ?, telefone_fixo = ?, telefone_cel = ?, email = ?, latitude = ?, longitude = ? WHERE id_empresa = ?",
               [
                 req.body.nome_Empresa,
                 req.body.endereco,
