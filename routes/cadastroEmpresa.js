@@ -59,7 +59,7 @@ router.post('/', function (req, res) {
               }
             );
           } else {
-            connection.query("INSERT INTO empresa(nome_empresa, situacao, cnpj, endereco, responsavel, login, senha, telefone_fixo, telefone_cel, email, latitude, longitude) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+            connection.query("INSERT INTO empresa(nome_empresa, situacao, cnpj, endereco, responsavel, login, senha, telefone_fixo, telefone_cel, email, latitude, longitude) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
               [
                 req.body.nome_empresa,
                 req.body.situacao,
