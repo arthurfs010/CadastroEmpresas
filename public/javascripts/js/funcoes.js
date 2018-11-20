@@ -9,7 +9,7 @@ $('.telefone').mask('(99) 9999-9999');
 $('.telefonecel').mask('(99) 9 9999-9999');
 $('.cnpj').mask('99.999.999/9999-99');
 
-function funcaoEmpresas(id_empresa, nome_empresa, cnpj, endereco, responsavel, telefone_fixo, telefone_cel, email, latitude, longitude) {
+function funcaoEmpresas(id_empresa, nome_empresa, cnpj, endereco, responsavel, telefone_fixo, telefone_cel, email, latitude, longitude, situcao) {
 	"use strict"
 	$('#id_empresa').val(id_empresa)
 	$('#nome_empresa').val(nome_empresa)
@@ -21,4 +21,5 @@ function funcaoEmpresas(id_empresa, nome_empresa, cnpj, endereco, responsavel, t
 	$('#email').val(email)
 	$('#latitude').val(latitude)
 	$('#longitude').val(longitude)
+  $('#situacao').val(situacao)
 }
