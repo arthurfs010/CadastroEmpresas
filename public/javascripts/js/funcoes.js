@@ -23,3 +23,7 @@ function funcaoEmpresas(id_empresa, nome_empresa, cnpj, endereco, responsavel, t
 	$('#longitude').val(longitude)
   $('#situacao').val(situacao)
 }
+
+function limpa_campos(){
+   document.getElementById('id_empresa').value = "";
+}
