@@ -48,8 +48,19 @@
                       <tbody>
                         <% if(empresas.length) { %>
                           <% for(var i = 0; i < empresas.length; i++) { %>
-                            <tr>
+                            <tr
+                              <% if(empresas[i].situacao == 0) { %>
+                                style="background-color:red; color:#fff"
+                              <% } %>
+                            >
                               <td><%=empresas[i].id_empresa%></td>
+                              <% var sit = empresas[i].situacao; %>
+                                <% if(sit == "1") { %>
+                                 <% sit = "Ativo"; %>
+                                <% } else{ %>
+                                 <% sit = "Inativo"; %>
+                                <% } %>
+                              <td><%=sit%></td>
                               <td><%=empresas[i].nome_empresa%></td>
                               <td><%=empresas[i].endereco%></td>
                               <td><%=empresas[i].responsavel%></td>
