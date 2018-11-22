@@ -27,3 +27,7 @@ function funcaoEmpresas(id_empresa, nome_empresa, cnpj, endereco, responsavel, t
 function limpa_campos(){
    document.getElementById('id_empresa').value = "";
 }
+
+function zera_global(){
+  global.key = 0;
+}
