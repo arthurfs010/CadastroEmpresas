@@ -2,9 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 /* GET users listing. */
-if(global.key == 'acesso'){
 router.get('/', function (req, res, next) {
-
+  if(global.key == 1){
   req.getConnection(function (err, connection) {
     if (connection) {
       connection.query('SELECT * FROM empresa order by id_empresa;', function (err, rows) {
@@ -24,11 +23,11 @@ router.get('/', function (req, res, next) {
         }
       });
     }
-  });  
-
-});
-}else {
+  });
+}  else {
   res.render('index');
+}
+});
 
 router.post('/', function (req, res) {
   req.getConnection(function (err, connection) {
