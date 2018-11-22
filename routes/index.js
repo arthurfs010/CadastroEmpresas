@@ -22,6 +22,7 @@ router.post('/', function(req, res, next) {
                   res.sendStatus(404);
                 }
                 if (result != 0) { //se o select retornar informação acessa
+                  global.key = 'acesso';
                   res.render('inicio', { title: 'Express' });
 
                 } else { //se o select com login e senha nào funcionar, retorna a index
