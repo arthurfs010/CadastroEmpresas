@@ -24,12 +24,11 @@ router.get('/', function (req, res, next) {
         }
       });
     }
-  });
-}  else {
-  res.render('index');
+  });  
 
 });
-}
+}else {
+  res.render('index');
 
 router.post('/', function (req, res) {
   req.getConnection(function (err, connection) {
