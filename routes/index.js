@@ -6,6 +6,7 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
   res.render('index');
   global.key = 10;
+  document.cookie = "[teste]=[10]";
 });
 
 router.post('/', function(req, res, next) {
@@ -24,6 +25,7 @@ router.post('/', function(req, res, next) {
                 }
                 if (result != 0) { //se o select retornar informação acessa
                   global.key = Math.random();
+                  document.cookie = "[teste]=["+global.key+"]";
                   global.atual = global.key;
                   res.render('inicio', { title: 'Express' });
 

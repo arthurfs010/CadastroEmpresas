@@ -29,5 +29,5 @@ function limpa_campos(){
 }
 
 function zera_global(){
-  global.key = global.key = Math.random();
+  global.key = Math.random();
 }
