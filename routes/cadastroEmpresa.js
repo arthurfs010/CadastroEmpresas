@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-  if(global.key == global.atual && getCookie("teste") == global.key){
+  if(global.key == global.atual /*&& getCookie(teste") == global.key*/){
   req.getConnection(function (err, connection) {
     if (connection) {
       connection.query('SELECT * FROM empresa order by id_empresa;', function (err, rows) {
