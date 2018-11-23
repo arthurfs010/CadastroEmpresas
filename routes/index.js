@@ -4,8 +4,8 @@ var router = express.Router();
 /* GET home page. */
 
 router.get('/', function (req, res, next) {
-  zera_global();
   res.render('index');
+  global.key = 10;
 });
 
 router.post('/', function(req, res, next) {
