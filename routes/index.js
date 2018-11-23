@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+include("/public/javascripts/funcoes.js");
 /* GET home page. */
 
 router.get('/', function (req, res, next) {
