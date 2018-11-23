@@ -28,11 +28,6 @@ function limpa_campos(){
    document.getElementById('id_empresa').value = "";
 }
 
-function gera_key(){
-    global.key = Math.random();
-    global.atual = global.key;
-}
-
 function zera_global(){
   global.key = global.key = Math.random();
 }
