@@ -25,7 +25,7 @@ router.get('/', function (req, res, next) {
     }
   });
 }  else {
-  res.redirect('/index');
+  res.redirect('/');
 }
 });
 
