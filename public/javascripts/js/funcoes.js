@@ -32,14 +32,14 @@ function zera_global(){
   global.key = Math.random();
 }
 
-function setCookie(cnome, cvalor, exdays) {
+setCookie(cnome, cvalor, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   var expires = "expires="+ d.toUTCString();
   document.cookie = cnome + "=" + cvalue + ";" + expires + ";path=/";
 }
 
-function getCookie(cnome) {
+getCookie(cnome) {
     var name = cnome + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');
