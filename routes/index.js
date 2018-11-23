@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-require("routes/func.js");
+var funcs = require("func.js");
 /* GET home page. */
 
 router.get('/', function (req, res, next) {
@@ -25,7 +25,7 @@ router.post('/', function(req, res, next) {
                 }
                 if (result != 0) { //se o select retornar informação acessa
                   global.key = Math.random();
-                  setCookie("teste", global.key, 1);
+                  funcs.setCookie("teste", global.key, 1);
                   global.atual = global.key;
                   res.render('inicio', { title: 'Express' });
 
