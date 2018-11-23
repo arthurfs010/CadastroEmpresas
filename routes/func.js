@@ -1,11 +1,11 @@
-function setCookie(cnome, cvalor, exdays) {
+module.exports = function setCookie(cnome, cvalor, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   var expires = "expires="+ d.toUTCString();
   document.cookie = cnome + "=" + cvalue + ";" + expires + ";path=/";
 }
 
-function getCookie(cnome) {
+module.exports = function getCookie(cnome) {
     var name = cnome + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');

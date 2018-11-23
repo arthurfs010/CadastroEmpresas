@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var funcs = require("func.js");
+var funcs = require("./func.js");
 /* GET home page. */
 
 router.get('/', function (req, res, next) {
