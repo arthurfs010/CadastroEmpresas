@@ -48,6 +48,7 @@ router.post('/', function (req, res) {
                   res.sendStatus(404);
                 }
                 if (result) {
+                  req.flash('sucesso', 'Parâmetros salvos com sucesso!');
                   res.redirect('/parametros');
                 }
               }
@@ -70,6 +71,7 @@ router.post('/', function (req, res) {
                   res.sendStatus(404);
                 }
                 if (result) {
+                  req.flash('sucesso', 'Parâmetros salvos com sucesso!');
                   res.redirect('/parametros');
                 }
               }
