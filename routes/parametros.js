@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
         if (rows) {
           res.render('parametros', {
             empresas: rows[0],
-            parametros: rows[1],
+            param: rows[1],
             sucesso: req.flash('sucesso')
           }
           );

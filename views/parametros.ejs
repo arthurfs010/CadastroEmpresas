@@ -45,13 +45,13 @@
                       </thead>
 
                       <tbody>
-                        <% if(parametros.length) { %>
-                          <% for(var i = 0; i < parametros.length; i++) { %>
+                        <% if(param.length) { %>
+                          <% for(var i = 0; i < param.length; i++) { %>
                             <tr>
-                              <td><%=parametros[i].nome_empresa%></td>
-                              <td><%=parametros[i].tipo_veiculo%></td>
-                              <td><%=parametros[i].cobertas%></td>
-                              <td><%=parametros[i].descobertas%></td>
+                              <td><%=param[i].nome_empresa%></td>
+                              <td><%=param[i].tipo_veiculo%></td>
+                              <td><%=param[i].cobertas%></td>
+                              <td><%=param[i].descobertas%></td>
                               <td><input type='button' value='Editar' onclick="funcaoEmpresas('<%= empresas[i].id_empresa %>', '<%= empresas[i].nome_empresa %>', '<%= empresas[i].cnpj %>', '<%= empresas[i].endereco%>', '<%= empresas[i].responsavel %>', '<%= empresas[i].telefone_fixo %>', '<%= empresas[i].telefone_cel %>', '<%= empresas[i].email %>', '<%= empresas[i].latitude %>', '<%= empresas[i].longitude %>', '<%= empresas[i].situacao %>')"></td>
                             </tr>
                               <% }} %>
