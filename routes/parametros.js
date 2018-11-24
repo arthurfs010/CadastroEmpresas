@@ -16,7 +16,7 @@ router.get('/', function (req, res, next) {
         }
         if (err) {
           res.render('parametros');
-            page_title: "Algo deu errado!",
+            page_title: "Algo deu errado! ",
             error: err
           });
           console.log("Error Selecting : %s ", err);
