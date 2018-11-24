@@ -15,7 +15,7 @@ router.get('/', function (req, res, next) {
           );
         }
         if (err) {
-          res.render('parametros');
+          res.render('parametros', {
             page_title: "Algo deu errado!",
             error: err
           });
