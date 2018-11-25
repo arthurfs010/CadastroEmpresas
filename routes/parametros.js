@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
   req.getConnection(function (err, connection) {
     if (connection) {
-      connection.query('SELECT * FROM empresa ORDER BY id_empresa; SELECT e.nome_empresa as nome_empresa, valor_meiahora, valor_umahora, valor_diaria, valor_semana, valor_mes, tipo_veiculo, qtd_cobertas, qtd_descobertas FROM parametros_empresa p INNER JOIN empresa e on p.id_empresa=e.id_empresa ORDER BY p.id_empresa;', function (err, rows) {
+      connection.query('SELECT * FROM empresa ORDER BY id_empresa; SELECT p.id_empresa as id_empresa, e.nome_empresa as nome_empresa, valor_meiahora, valor_umahora, valor_diaria, valor_semana, valor_mes, tipo_veiculo, qtd_cobertas, qtd_descobertas FROM parametros_empresa p INNER JOIN empresa e on p.id_empresa=e.id_empresa ORDER BY p.id_empresa;', function (err, rows) {
         if (rows) {
           res.render('parametros', {
             empresas: rows[0],
