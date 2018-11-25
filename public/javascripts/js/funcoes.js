@@ -24,6 +24,19 @@ function funcaoEmpresas(id_empresa, nome_empresa, cnpj, endereco, responsavel, t
   $('#situacao').val(situacao)
 }
 
+function funcaoParametros(id_empresa, tipo_veiculo, valor_meiahora, valor_umahora, valor_diaria, valor_semana, valor_mes, qtd_cobertas, qtd_descobertas) {
+	"use strict"
+	$('#id_empresa').val(id_empresa)
+	$('#tipo_veiculo').val(tipo_veiculo)
+	$('#valor_meiahora').val(valor_meiahora)
+	$('#valor_umahora').val(valor_umahora)
+	$('#valor_diaria').val(valor_diaria)
+	$('#valor_semana').val(valor_semana)
+	$('#valor_mes').val(valor_mes)
+	$('#qtd_cobertas').val(qtd_cobertas)
+	$('#qtd_descobertas').val(qtd_descobertas)
+}
+
 function limpa_campos(){
    document.getElementById('id_empresa').value = "";
 }

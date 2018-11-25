@@ -52,7 +52,7 @@
                               <td><%=param[i].tipo_veiculo%></td>
                               <td><%=param[i].qtd_cobertas%></td>
                               <td><%=param[i].qtd_descobertas%></td>
-                              <td><input type='button' value='Editar' onclick="funcaoParametros('<%= empresas[i].id_empresa %>', '<%= empresas[i].nome_empresa %>', '<%= empresas[i].cnpj %>', '<%= empresas[i].endereco%>', '<%= empresas[i].responsavel %>', '<%= empresas[i].telefone_fixo %>', '<%= empresas[i].telefone_cel %>', '<%= empresas[i].email %>', '<%= empresas[i].latitude %>', '<%= empresas[i].longitude %>', '<%= empresas[i].situacao %>')"></td>
+                              <td><input type='button' value='Editar' onclick="funcaoParametros('<%= param[i].id_empresa %>', '<%= param[i].tipo_veiculo %>', '<%= param[i].valor_meiahora %>', '<%= param[i].valor_umahora%>', '<%= param[i].valor_diaria %>', '<%= param[i].valor_semana %>', '<%= param[i].valor_mes %>', '<%= param[i].qtd_cobertas %>', '<%= param[i].qtd_descobertas %>')"></td>
                             </tr>
                         <% }} %>
                       </tbody>
