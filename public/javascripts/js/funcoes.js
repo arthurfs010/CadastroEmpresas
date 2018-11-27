@@ -8,8 +8,9 @@ $('.dinheiro').mask('#.00', {reverse: true});
 $('.telefone').mask('(99) 9999-9999');
 $('.telefonecel').mask('(99) 9 9999-9999');
 $('.cnpj').mask('99.999.999/9999-99');
+$('.horario').mask('99:99 - 99:99');
 
-function funcaoEmpresas(id_empresa, nome_empresa, cnpj, endereco, responsavel, telefone_fixo, telefone_cel, email, latitude, longitude, situacao) {
+function funcaoEmpresas(id_empresa, nome_empresa, cnpj, endereco, responsavel, telefone_fixo, telefone_cel, email, latitude, longitude, situacao, hr_seg_sex, hr_sabado, hr_dom_fer) {
 	"use strict"
 	$('#id_empresa').val(id_empresa)
 	$('#nome_empresa').val(nome_empresa)
@@ -22,6 +23,9 @@ function funcaoEmpresas(id_empresa, nome_empresa, cnpj, endereco, responsavel, t
 	$('#latitude').val(latitude)
 	$('#longitude').val(longitude)
   $('#situacao').val(situacao)
+  $('#hr_seg_sex').val(hr_seg_sex)
+  $('#hr_sabado').val(hr_sabado)
+  $('#hr_dom_fer').val(hr_dom_fer)
 }
 
 function funcaoParametros(id_empresa, tipo_veiculo, valor_meiahora, valor_umahora, valor_diaria, valor_semana, valor_mes, qtd_cobertas, qtd_descobertas) {

@@ -35,7 +35,7 @@ router.post('/', function (req, res) {
       connection.query("SELECT * FROM empresa WHERE id_empresa = ?", [req.body.id_empresa],
         function (err, rows) {
           if (rows.length != 0) {
-            connection.query("UPDATE empresa SET nome_empresa = ?, situacao = ?, endereco = ?, cnpj = ?, responsavel = ?, login = ?, senha = ?, telefone_fixo = ?, telefone_cel = ?, email = ?, latitude = ?, longitude = ? WHERE id_empresa = ?",
+            connection.query("UPDATE empresa SET nome_empresa = ?, situacao = ?, endereco = ?, cnpj = ?, responsavel = ?, login = ?, senha = ?, telefone_fixo = ?, telefone_cel = ?, email = ?, latitude = ?, longitude = ?, hr_seg_sex = ?, hr_sabado = ?, hr_dom_fer = ? WHERE id_empresa = ?",
               [
                 req.body.nome_empresa,
                 req.body.situacao,
@@ -49,6 +49,9 @@ router.post('/', function (req, res) {
                 req.body.email,
                 req.body.latitude,
                 req.body.longitude,
+                req.body.hr_seg_sex,
+                req.body.hr_sabado,
+                req.body.hr_dom_fer,
                 req.body.id_empresa
 
               ], function (err, result) {
@@ -63,7 +66,7 @@ router.post('/', function (req, res) {
               }
             );
           } else {
-            connection.query("INSERT INTO empresa(nome_empresa, situacao, cnpj, endereco, responsavel, login, senha, telefone_fixo, telefone_cel, email, latitude, longitude) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
+            connection.query("INSERT INTO empresa(nome_empresa, situacao, cnpj, endereco, responsavel, login, senha, telefone_fixo, telefone_cel, email, latitude, longitude, hr_seg_sex, hr_sabado, hr_dom_fer) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
               [
                 req.body.nome_empresa,
                 req.body.situacao,
@@ -77,6 +80,9 @@ router.post('/', function (req, res) {
                 req.body.email,
                 req.body.latitude,
                 req.body.longitude,
+                req.body.hr_seg_sex,
+                req.body.hr_sabado,
+                req.body.hr_dom_fer
 
               ], function (err, result) {
                 if (err) {
