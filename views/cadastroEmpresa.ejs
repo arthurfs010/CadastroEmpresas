@@ -66,7 +66,7 @@
                               <td><%=empresas[i].endereco%></td>
                               <td><%=empresas[i].responsavel%></td>
                               <td><%=empresas[i].telefone_cel%></td>
-                              <td><input type='button' value='Editar' onclick="funcaoEmpresas('<%= empresas[i].id_empresa %>', '<%= empresas[i].nome_empresa %>', '<%= empresas[i].cnpj %>', '<%= empresas[i].endereco%>', '<%= empresas[i].responsavel %>', '<%= empresas[i].telefone_fixo %>', '<%= empresas[i].telefone_cel %>', '<%= empresas[i].email %>', '<%= empresas[i].latitude %>', '<%= empresas[i].longitude %>', '<%= empresas[i].situacao %>')"></td>
+                              <td><input type='button' value='Editar' onclick="funcaoEmpresas('<%= empresas[i].id_empresa %>', '<%= empresas[i].nome_empresa %>', '<%= empresas[i].cnpj %>', '<%= empresas[i].endereco%>', '<%= empresas[i].responsavel %>', '<%= empresas[i].telefone_fixo %>', '<%= empresas[i].telefone_cel %>', '<%= empresas[i].email %>', '<%= empresas[i].latitude %>', '<%= empresas[i].longitude %>', '<%= empresas[i].situacao %>', '<%= empresas[i].hr_seg_sex %>', '<%= empresas[i].hr_sabado %>', '<%= empresas[i].hr_dom_fer %>')"></td>
                             </tr>
                               <% }} %>
                       </tbody>
@@ -211,7 +211,7 @@
                   <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input type="text" id="hr_dom_fer" name="hr_dom_fer" required="required"  class="form-control col-md-7 col-xs-12" minlength="13" placeholder="Ex: 08:00 - 18:00 *Caso não abra, digite 00:00 - 00:00">
+                  <input type="text" id="hr_dom_fer" name="hr_dom_fer" required="required"  class="horario form-control" minlength="13" placeholder="Ex: 08:00 - 18:00 *Caso não abra, digite 00:00 - 00:00">
                 </div>
               </div>
 
