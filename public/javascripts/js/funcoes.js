@@ -8,7 +8,6 @@ $('.dinheiro').mask('#.00', {reverse: true});
 $('.telefone').mask('(99) 9999-9999');
 $('.telefonecel').mask('(99) 9 9999-9999');
 $('.cnpj').mask('99.999.999/9999-99');
-$('.horario').mask('99:99 - 99:99');
 
 function funcaoEmpresas(id_empresa, nome_empresa, cnpj, endereco, responsavel, telefone_fixo, telefone_cel, email, latitude, longitude, situacao, hr_seg_sex, hr_sabado, hr_dom_fer) {
 	"use strict"
