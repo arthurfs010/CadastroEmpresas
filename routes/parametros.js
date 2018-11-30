@@ -3,6 +3,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
+  if(global.key == global.atual /*&& getCookie(teste") == global.key*/){
   req.getConnection(function (err, connection) {
     if (connection) {
       connection.query('SELECT * FROM empresa WHERE situacao = 1 ORDER BY id_empresa; SELECT p.id_empresa as id_empresa, e.nome_empresa as nome_empresa, valor_meiahora, valor_umahora, valor_diaria, valor_semana, valor_mes, tipo_veiculo, qtd_cobertas, qtd_descobertas FROM parametros_empresa p INNER JOIN empresa e on p.id_empresa=e.id_empresa WHERE e.situacao = 1 ORDER BY p.id_empresa;', function (err, rows) {
@@ -24,6 +25,9 @@ router.get('/', function (req, res, next) {
       });
     }
   });
+}  else {
+  res.redirect('/');
+}
 });
 
 router.post('/', function (req, res) {
