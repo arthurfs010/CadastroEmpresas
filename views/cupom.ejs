@@ -1,0 +1,73 @@
+<%- include layouts/sidebar.ejs %>
+  <div class="right_col" role="main">
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2> Cupom de desconto </h2>
+              <div class="clearfix"></div>
+            </div>
+
+            <% if(sucesso.length> 0){%>
+            <div class="alert alert-success">
+              <strong><%= sucesso %></strong>
+            </div>
+            <% } %>
+
+            <div class="x_content">
+
+
+              <form method="post" action="" name="formulario" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="l_codigo"> Código do Cupom
+                  <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="codigo" name="codigo" required="required" class="form-control">
+                  </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="l_descricao"> Descrição do Cupom
+                  <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" id="descricao" maxlength="200" name="descricao" required="required" class="form-control">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="l_validade"> Validade do cupom
+                  <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="date" id="validade" name="validade" required="required" class="form-control">
+                </div>
+              </div>
+
+
+
+
+                <div class="ln_solid"></div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    <button class="btn btn-round btn-warning" type="reset">Limpar</button>
+                    <button class="btn btn-round btn-success" type="submit">Salvar</button>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
