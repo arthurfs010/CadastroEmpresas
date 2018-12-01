@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
       connection.query('SELECT * FROM cupom where validade > (select current_date())', function (err, rows) {
         if (rows) {
           res.render('cupom', {
-            cupons: rows[0],
+            cupons: rows,
             sucesso: req.flash('sucesso')
           }
           );
