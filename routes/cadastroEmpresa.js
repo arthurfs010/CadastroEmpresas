@@ -35,7 +35,7 @@ router.post('/', function (req, res) {
       connection.query("SELECT * FROM empresa WHERE id_empresa = ?", [req.body.id_empresa],
         function (err, rows) {
           if (rows.length != 0) {
-            connection.query("UPDATE empresa SET nome_empresa = ?, situacao = ?, endereco = ?, cnpj = ?, responsavel = ?, login = ?, senha = ?, telefone_fixo = ?, telefone_cel = ?, email = ?, latitude = ?, longitude = ?, hr_seg_sex = ?, hr_sabado = ?, hr_dom_fer = ? WHERE id_empresa = ?",
+            connection.query("UPDATE empresa SET nome_empresa = ?, situacao = ?, endereco = ?, cnpj = ?, responsavel = ?, login = ?, senha = ?, telefone_fixo = ?, telefone_cel = ?, email = ?, latitude = ?, longitude = ?, hr_seg_sex = ?, hr_seg_sex_fim = ?, hr_sabado = ?, hr_sabado_fim = ?, hr_dom_fer = ?, hr_dom_fer_fim = ? WHERE id_empresa = ?",
               [
                 req.body.nome_empresa,
                 req.body.situacao,
@@ -50,8 +50,11 @@ router.post('/', function (req, res) {
                 req.body.latitude,
                 req.body.longitude,
                 req.body.hr_seg_sex,
+                req.body.hr_seg_sex_fim,
                 req.body.hr_sabado,
+                req.body.hr_sabado_fim,
                 req.body.hr_dom_fer,
+                req.body.hr_dom_fer_fim,
                 req.body.id_empresa
 
               ], function (err, result) {
@@ -66,7 +69,7 @@ router.post('/', function (req, res) {
               }
             );
           } else {
-            connection.query("INSERT INTO empresa(nome_empresa, situacao, cnpj, endereco, responsavel, login, senha, telefone_fixo, telefone_cel, email, latitude, longitude, hr_seg_sex, hr_sabado, hr_dom_fer) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+            connection.query("INSERT INTO empresa(nome_empresa, situacao, cnpj, endereco, responsavel, login, senha, telefone_fixo, telefone_cel, email, latitude, longitude, hr_seg_sex, hr_seg_sex_fim, hr_sabado, hr_sabado_fim, hr_dom_fer, hr_dom_fer_fim) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
               [
                 req.body.nome_empresa,
                 req.body.situacao,
@@ -81,8 +84,11 @@ router.post('/', function (req, res) {
                 req.body.latitude,
                 req.body.longitude,
                 req.body.hr_seg_sex,
+                req.body.hr_seg_sex_fim,
                 req.body.hr_sabado,
-                req.body.hr_dom_fer
+                req.body.hr_sabado_fim,
+                req.body.hr_dom_fer,
+                req.body.hr_dom_fer_fim
 
               ], function (err, result) {
                 if (err) {
