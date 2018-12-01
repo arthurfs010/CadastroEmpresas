@@ -51,7 +51,7 @@
                               <td><%=cupons[i].descricao%></td>
 
                               <% var validade = new Date(cupons[i].validade); %>
-                              <% validade.format("dd/MM/yyyy);%>
+                              <% validade.format("dd/MM/yyyy"); %>
 
                               <td><%=validade%></td>
                               <td><input type='button' value='Editar' onclick="funcaoCupons('<%= cupons[i].codigo %>', '<%= cupons[i].descricao %>', '<%= cupons[i].validade %>')"></td>
