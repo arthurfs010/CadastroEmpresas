@@ -50,8 +50,8 @@
                               <td><%=cupons[i].codigo%></td>
                               <td><%=cupons[i].descricao%></td>
 
-                              <% var validade = new Date(cupons[i].validade),dia  = validade.getDate().toString(), diaF = (dia.length == 1) ? '0'+dia : dia, mes  = (validade.getMonth()+1).toString(), mesF = (mes.length == 1) ? '0'+mes : mes, anoF = validade.getFullYear(); %>
-                              <% validade = diaF+"/"+mesF+"/"+anoF; %>
+                              <% var validade = new Date(cupons[i].validade); %>
+                              <% validade.format("dd/MM/yyyy);%>
 
                               <td><%=validade%></td>
                               <td><input type='button' value='Editar' onclick="funcaoCupons('<%= cupons[i].codigo %>', '<%= cupons[i].descricao %>', '<%= cupons[i].validade %>')"></td>
