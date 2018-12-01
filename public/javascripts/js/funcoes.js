@@ -43,6 +43,14 @@ function funcaoParametros(id_empresa, tipo_veiculo, valor_meiahora, valor_umahor
 	$('#qtd_descobertas').val(qtd_descobertas)
 }
 
+function funcaoCupons(codigo, descricao, validade) {
+	"use strict"
+	$('#codigo').val(codigo)
+	$('#descricao').val(descricao)
+	$('#validade').val(validade)
+
+}
+
 function limpa_campos(){
    document.getElementById('id_empresa').value = "";
 }
