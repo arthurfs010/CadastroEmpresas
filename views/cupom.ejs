@@ -50,7 +50,7 @@
                               <td><%=cupons[i].codigo%></td>
                               <td><%=cupons[i].descricao%></td>
 
-                              <% var validade = cupons[i].validade; %>
+                              <% var validade = new Date(cupons[i].validade); %>
                               <% var dia  = validade.getDate().toString(); %>
                               <% var diaF = (dia.length == 1) ? '0'+dia : dia; %>
                               <% var mes  = (validade.getMonth()+1).toString(); %>
