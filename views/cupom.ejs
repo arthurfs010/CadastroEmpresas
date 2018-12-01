@@ -50,13 +50,13 @@
                               <td><%=cupons[i].codigo%></td>
                               <td><%=cupons[i].descricao%></td>
 
-                              <% var data = cupons[i].validade, %>
-                              <% dia  = data.getDate().toString(), %>
-                              <% diaF = (dia.length == 1) ? '0'+dia : dia, %>
-                              <% mes  = (data.getMonth()+1).toString(), %>
-                              <% mesF = (mes.length == 1) ? '0'+mes : mes, %>
-                              <% anoF = data.getFullYear(); %>
-                              <% validade = diaF+"/"+mesF+"/"+anoF;%>
+                              <% var validade = cupons[i].validade; %>
+                              <% var dia  = validade.getDate().toString(); %>
+                              <% var diaF = (dia.length == 1) ? '0'+dia : dia; %>
+                              <% var mes  = (validade.getMonth()+1).toString(); %>
+                              <% var mesF = (mes.length == 1) ? '0'+mes : mes; %>
+                              <% var anoF = validade.getFullYear(); %>
+                              <% validade = diaF+"/"+mesF+"/"+anoF ;%>
 
                               <td><%=validade%></td>
 
