@@ -50,8 +50,13 @@
                               <td><%=cupons[i].codigo%></td>
                               <td><%=cupons[i].descricao%></td>
 
-                              <% var validade = cupons[i].validade; %>
-                              <% validade = dataFormatada(validade); %>
+                              <% var data = cupons[i].validade, %>
+                              <% dia  = data.getDate().toString(), %>
+                              <% diaF = (dia.length == 1) ? '0'+dia : dia, %>
+                              <% mes  = (data.getMonth()+1).toString(), %>
+                              <% mesF = (mes.length == 1) ? '0'+mes : mes, %>
+                              <% anoF = data.getFullYear(); %>
+                              <% validade = diaF+"/"+mesF+"/"+anoF %>
 
                               <td><%=validade%></td>
 
