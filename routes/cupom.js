@@ -53,7 +53,7 @@ router.post('/', function (req, res) {
             );
           } else {
             connection.query("UPDATE cupom SET validade = (select current_date()) WHERE validade > (select current_date())",
-              function (err, rows) {
+              function (err, result) {
                 if (result) {
                     connection.query("INSERT INTO cupom(codigo, descricao, validade) VALUES (?,?,?)",
                     [
