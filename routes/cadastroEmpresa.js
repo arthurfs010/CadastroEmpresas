@@ -11,7 +11,7 @@ router.get('/', function (req, res, next) {
           res.render('cadastroEmpresa', {
             empresas: rows,
             sucesso: req.flash('sucesso'),
-            atencao: req.flash('atencao')
+            atencao: req.flash('atencao'),
             erro: req.flash('erro')
           }
           );
