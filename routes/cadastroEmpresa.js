@@ -62,8 +62,6 @@ router.post('/', function (req, res) {
               ], function (err, result) {
                 if (err) {
                   console.log("Erro update: %s ", err);
-                  req.flash('erro', 'Verifique os dados e tente novamente, caso não funcione, entre em contato com o suporte!');
-                  res.redirect('/cadastroEmpresa');
                   res.sendStatus(404);
                 }
                 if (result) {
@@ -103,8 +101,6 @@ router.post('/', function (req, res) {
                     ], function (err, result) {
                       if (err) {
                         console.log("Erro insert: %s ", err);
-                        req.flash('erro', 'Verifique os dados e tente novamente, caso não funcione, entre em contato com o suporte!');
-                        res.redirect('/cadastroEmpresa');
                         res.sendStatus(404);
                       }
                       if (result) {
@@ -116,8 +112,6 @@ router.post('/', function (req, res) {
                 }
                 if (err) {
                   console.log("Error Selecting : %s ", err);
-                  req.flash('erro', 'Verifique os dados e tente novamente, caso não funcione, entre em contato com o suporte!');
-                  res.redirect('/cadastroEmpresa');
                   res.sendStatus(404);
                 }
               }
@@ -125,7 +119,6 @@ router.post('/', function (req, res) {
           }
           if (err) {
             console.log("Error Selecting : %s ", err);
-            req.flash('erro', 'Verifique os dados e tente novamente, caso não funcione, entre em contato com o suporte!');
             res.redirect('/cadastroEmpresa');
             res.sendStatus(404);
           }
