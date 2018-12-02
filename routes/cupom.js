@@ -6,7 +6,7 @@ router.get('/', function (req, res, next) {
   if(global.key == global.atual /*&& getCookie(teste") == global.key*/){
   req.getConnection(function (err, connection) {
     if (connection) {
-      connection.query('SELECT codigo, descricao, DATE_FORMAT(validade, "%d/%m/%Y") as validade FROM cupom where validade > (select current_date())', function (err, rows) {
+      connection.query('SELECT codigo, descricao, DATE_FORMAT(validade, "%d/%m/%Y") as validadeLista, validade FROM cupom where validade > (select current_date())', function (err, rows) {
         if (rows) {
           res.render('cupom', {
             cupons: rows,
