@@ -28,6 +28,12 @@
       <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>
 
+      <% if(erro.length> 0){%>
+      <div class="alert alert-danger">
+        <strong><%= erro %></strong>
+      </div>
+      <% } %>
+
       <div class="login_wrapper">
         <div class="animate form login_form">
 			<h2 align="center"><img src="../images/logo_login.png"/></h2>
