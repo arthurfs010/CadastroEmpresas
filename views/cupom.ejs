@@ -49,7 +49,7 @@
                             <tr
                             <% now = new Date;%>
                             <% now = now.getFullYear() + "-" + now.getMonth() + "-" + now.getDate();%>
-                            <% if(cupons[i].validade < hoje) { %>
+                            <% if(cupons[i].validade < now) { %>
                               style="background-color:#a0a0a0; color:#fff"
                             <% } %>
                             >
