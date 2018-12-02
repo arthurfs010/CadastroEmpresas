@@ -6,7 +6,7 @@ router.get('/', function (req, res, next) {
   if(global.key == global.atual /*&& getCookie(teste") == global.key*/){
   req.getConnection(function (err, connection) {
     if (connection) {
-      connection.query('SELECT codigo, descricao, DATE_FORMAT(validade, "%d/%m/%Y") as validadeLista, validade FROM cupom where validade > (select current_date())', function (err, rows) {
+      connection.query('SELECT codigo, descricao, DATE_FORMAT(validade, "%d/%m/%Y") as validadeLista, validade FROM cupom ORDER BY validade', function (err, rows) {
         if (rows) {
           res.render('cupom', {
             cupons: rows,
@@ -52,19 +52,29 @@ router.post('/', function (req, res) {
               }
             );
           } else {
-            connection.query("INSERT INTO cupom(codigo, descricao, validade) VALUES (?,?,?)",
-              [
-                req.body.codigo,
-                req.body.descricao,
-                req.body.validade
-              ], function (err, result) {
-                if (err) {
-                  console.log("Erro insert: %s ", err);
-                  res.sendStatus(404);
-                }
+            connection.query("UPDATE cupom SET validade = (select current_date()) WHERE validade > (select current_date())",
+              function (err, rows) {
                 if (result) {
-                  req.flash('sucesso', 'Cupom salvo com sucesso!');
-                  res.redirect('/cupom');
+                    connection.query("INSERT INTO cupom(codigo, descricao, validade) VALUES (?,?,?)",
+                    [
+                      req.body.codigo,
+                      req.body.descricao,
+                      req.body.validade
+                    ], function (err, result) {
+                      if (err) {
+                        console.log("Erro insert: %s ", err);
+                        res.sendStatus(404);
+                      }
+                      if (result) {
+                        req.flash('sucesso', 'Cupom salvo com sucesso!');
+                        res.redirect('/cupom');
+                      }
+                    }
+                  );
+                }
+                if (err) {
+                  console.log("Error Selecting : %s ", err);
+                  res.sendStatus(404);
                 }
               }
             );
