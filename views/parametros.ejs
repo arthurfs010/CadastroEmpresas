@@ -49,7 +49,14 @@
                           <% for(var i = 0; i < param.length; i++) { %>
                             <tr>
                               <td><%=param[i].nome_empresa%></td>
-                              <td><%=param[i].tipo_veiculo%></td>
+
+                              <% var tipo = alunos[i].situacao; %>
+                                <% if(tipo == "M") { %>
+                                 <% tipo = "Moto"; %>
+                                <% } else{ %>
+                                 <% tipo = "Carro"; %>
+                                <% } %>
+                              <td><%=tipo%></td>
                               <td><%=param[i].qtd_cobertas%></td>
                               <td><%=param[i].qtd_descobertas%></td>
                               <td><input type='button' value='Editar' onclick="funcaoParametros('<%= param[i].id_empresa %>', '<%= param[i].tipo_veiculo %>', '<%= param[i].valor_meiahora %>', '<%= param[i].valor_umahora%>', '<%= param[i].valor_diaria %>', '<%= param[i].valor_semana %>', '<%= param[i].valor_mes %>', '<%= param[i].qtd_cobertas %>', '<%= param[i].qtd_descobertas %>')"></td>
