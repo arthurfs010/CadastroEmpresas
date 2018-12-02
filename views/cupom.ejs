@@ -36,9 +36,9 @@
                     <table id="datatable-buttons" class="table table-striped table-bordered bulk_action dataTables_wrapper">
                       <thead>
                         <tr>
+                          <th>Validade</th>
                           <th>Código</th>
                           <th>Descrição</th>
-                          <th>Validade</th>
                           <th></th>
                         </tr>
                       </thead>
@@ -52,9 +52,9 @@
                               style="background-color:#a0a0a0; color:#fff"
                             <% } %>
                             >
+                              <td><%=cupons[i].validadeLista%></td>
                               <td><%=cupons[i].codigo%></td>
                               <td><%=cupons[i].descricao%></td>
-                              <td><%=cupons[i].validadeLista%></td>
                               <td><input type='button' value='Editar' onclick="funcaoCupons('<%= cupons[i].codigo %>', '<%= cupons[i].descricao %>', '<%= cupons[i].validade %>')"></td>
                             </tr>
                         <% }} %>
