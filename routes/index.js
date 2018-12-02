@@ -31,7 +31,7 @@ router.post('/', function(req, res, next) {
                   res.render('inicio', { title: 'Express' });
 
                 } else { //se o select com login e senha nào funcionar, retorna a index
-                  erro = 1
+                  
                   res.render('index');
                 }
               }
