@@ -4,9 +4,7 @@ var router = express.Router();
 /* GET home page. */
 
 router.get('/', function (req, res, next) {
-  res.render('index', {
-    erro: req.flash('erro')
-  });
+  res.render('index');
   global.key = 10;
   global.atual = 0;
 });
@@ -32,7 +30,7 @@ router.post('/', function(req, res, next) {
                   res.render('inicio', { title: 'Express' });
 
                 } else { //se o select com login e senha nào funcionar, retorna a index
-                  req.flash('erro', 'Verifique os dados e tente novamente!');
+                  erro = 1
                   res.render('index');
                 }
               }
