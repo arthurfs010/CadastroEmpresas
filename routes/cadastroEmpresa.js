@@ -10,7 +10,9 @@ router.get('/', function (req, res, next) {
         if (rows) {
           res.render('cadastroEmpresa', {
             empresas: rows,
-            sucesso: req.flash('sucesso')
+            sucesso: req.flash('sucesso'),
+            atencao: req.flash('atencao')
+            erro: req.flash('erro')
           }
           );
         }
