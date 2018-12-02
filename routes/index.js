@@ -6,6 +6,7 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
   res.render('index');
   global.key = 10;
+  global.atual = 0;
 });
 
 router.post('/', function(req, res, next) {
