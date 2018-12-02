@@ -46,7 +46,13 @@
                       <tbody>
                         <% if(cupons.length) { %>
                           <% for(var i = 0; i < cupons.length; i++) { %>
-                            <tr>
+                            <tr
+                            <% now = new Date;%>
+                            <% hoje = now.getFullYear() + "-" + now.getMonth() + "-" + now.getDate();%>
+                            <% if(cupons[i].validade < hoje) { %>
+                              style="background-color:#a0a0a0; color:#fff"
+                            <% } %>
+                            >
                               <td><%=cupons[i].codigo%></td>
                               <td><%=cupons[i].descricao%></td>
                               <td><%=cupons[i].validadeLista%></td>
