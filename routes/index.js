@@ -5,6 +5,7 @@ var router = express.Router();
 
 router.get('/', function (req, res, next) {
   res.render('index');
+  erro = 0;
   global.key = 10;
   global.atual = 0;
 });
