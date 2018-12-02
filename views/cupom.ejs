@@ -47,10 +47,8 @@
                         <% if(cupons.length) { %>
                           <% for(var i = 0; i < cupons.length; i++) { %>
                             <tr
-                            <% now = new Date();%>
-                            <% hoje = now.getFullYear() + "-" + now.getMonth() + "-" + now.getDate();%>
-                            <% now = new Date(hoje);%>
-                            <% if(cupons[i].validade < hoje) { %>
+                            <% data = new Date(cupons[i].validade);%>
+                            <% if(data < new Date()) { %>
                               style="background-color:#a0a0a0; color:#fff"
                             <% } %>
                             >
