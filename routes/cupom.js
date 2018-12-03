@@ -47,7 +47,6 @@ router.post('/', function (req, res) {
                               console.log("Erro insert: %s ", err);
                               res.sendStatus(404);
                             }
-                            if (result) {
                               connection.query("UPDATE cupom SET descricao = ?, validade = ? WHERE codigo = ?",
                                 [
                                   req.body.descricao,
@@ -64,7 +63,7 @@ router.post('/', function (req, res) {
                                   }
                                 }
                               );
-                            }
+
                           }
                         );
                       }
