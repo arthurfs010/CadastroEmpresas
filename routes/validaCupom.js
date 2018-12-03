@@ -22,7 +22,7 @@ router.get('/', function (req, res, next) {
 router.post('/', function (req, res) {
   req.getConnection(function (err, connection) {
     if (connection) {
-      connection.query("SELECT * from cupom where codigo = ? ", [req.body.cod_cup],
+      connection.query("SELECT * from cupom where codigo = ? and validade >= (select current_date())", [req.body.cod_cup],
         function (err, rows) {
           console.log(err, rows);
           if (rows.length != 0) {
