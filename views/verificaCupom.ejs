@@ -82,7 +82,7 @@
                     </thead>
 
                     <tbody>
-                      <% if(cupom.length) { %>
+                      <% if(cupom.length > 0) { %>
                         <% for(var i = 0; i < cupom.length; i++) { %>
                           <tr>
                             <td><%=cupom[i].codigo%></td>
@@ -90,7 +90,11 @@
                             <td><%=cupom[i].validadeLista%></td>
 
                           </tr>
-                            <% }} %>
+                      <% }} else { %>
+                        <tr>
+                          <td>Não há cupons ativos no momento!</td>
+                        <tr>
+                      <% } %>
                     </tbody>
                   </table>
                 </div>
