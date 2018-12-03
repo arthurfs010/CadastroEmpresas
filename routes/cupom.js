@@ -35,6 +35,37 @@ router.post('/', function (req, res) {
       connection.query("SELECT * FROM cupom WHERE codigo = ?", [req.body.codigo],
         function (err, rows) {
           if (rows.length != 0) {
+            connection.query("SELECT * FROM cupom WHERE validade >= (select current_date())",
+              function (err, rows) {
+                if (rows.length != 0) {
+                  connection.query("SELECT * FROM cupom WHERE ? >= (select current_date()) && codigo <> ?", [req.body.validade, req.body.codigo],
+                    function (err, rows) {
+                      if (rows.length != 0) {
+                          connection.query("UPDATE cupom SET validade = (DATE_SUB(CURRENT_DATE, INTERVAL 1 DAY)) WHERE validade >= (select current_date())",
+                          function (err, result) {
+                            if (err) {
+                              console.log("Erro insert: %s ", err);
+                              res.sendStatus(404);
+                            }
+                            if (result) {
+                              console.log("Sucesso Update: %s ", result);
+                            }
+                          }
+                        );
+                      }
+                      if (err) {
+                        console.log("Error Selecting : %s ", err);
+                        res.sendStatus(404);
+                      }
+                    }
+                  );
+                }
+                if (err) {
+                  console.log("Error Selecting : %s ", err);
+                  res.sendStatus(404);
+                }
+              }
+            );
             connection.query("UPDATE cupom SET descricao = ?, validade = ? WHERE codigo = ?",
               [
                 req.body.descricao,
