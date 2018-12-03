@@ -13,7 +13,7 @@ var cadastroEmpresa = require('./routes/cadastroEmpresa');
 var inicio = require('./routes/inicio');
 var parametros = require('./routes/parametros');
 var cupom = require('./routes/cupom');
-var validaCupom = require('./routes/validaCupom');
+var verificaCupom = require('./routes/verificaCupom');
 
 var flash = require('connect-flash');
 
@@ -48,7 +48,7 @@ app.use('/cadastroEmpresa', cadastroEmpresa);
 app.use('/inicio', inicio);
 app.use('/parametros', parametros);
 app.use('/cupom', cupom);
-app.use('/validaCupom', validaCupom);
+app.use('/verificaCupom', verificaCupom);
 
 app.use(function (req, res, next) {
   var err = new Error('Not Found');

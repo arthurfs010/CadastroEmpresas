@@ -56,42 +56,51 @@
           <div class="x_panel">
             <a href="/"><h2 align="center"><img src="../images/logo_login.png"/></h2></a>
             <div class="x_title">
-              <h2>Validador de Cupom</h2>
+              <h2>Verificador de Cupom</h2>
               <div class="clearfix"></div>
             </div>
 
-            <% if(sucesso.length> 0){%>
-            <div class="alert alert-success">
-              <strong><%= sucesso %></strong>
-            </div>
-            <% } %>
 
-            <% if(erro.length> 0){%>
-            <div class="alert alert-danger">
-              <strong><%= erro %></strong>
-            </div>
-            <% } %>
-
-              <form action="" name="formulario" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post">
-
-                <div class="form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Digite o cupom:
-                    <span class="required">*</span>
-                  </label>
-                  <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="cod_cup" name="cod_cup" type="text" required="required" class="form-control col-md-7 col-xs-12">
-                  </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Cupom ativo:</small></h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
                 </div>
+                <div class="x_content">
+                  <table id="datatable-buttons" class="table table-striped table-bordered bulk_action dataTables_wrapper">
+                    <thead>
+                      <tr>
+                        <th>Código</th>
+                        <th>Descrição</th>
+                        <th>Validade</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <% if(cupom.length) { %>
+                        <% for(var i = 0; i < cupom.length; i++) { %>
+                          <tr>
+                            <td><%=cupom[i].codigo%></td>
+                            <td><%=empresas[i].descricao%></td>
+                            <td><%=empresas[i].validadeLista%></td>
+
+                          </tr>
+                            <% }} %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <br />
 
 
 
                 <script> var myStack = {"dir1":"down","dir2":"right","push":"top"}; </script>
-                <div class="form-group">
-                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                    <button class="btn btn-round btn-warning" type="reset">Limpar</button>
-                    <button class="btn btn-round btn-success" type="submit">Validar</button>
-                  </div>
-                </div>
 
               </form>
 			</div>
