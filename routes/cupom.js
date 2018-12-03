@@ -48,7 +48,22 @@ router.post('/', function (req, res) {
                               res.sendStatus(404);
                             }
                             if (result) {
-                              console.log("Sucesso Update: %s ", result);
+                              connection.query("UPDATE cupom SET descricao = ?, validade = ? WHERE codigo = ?",
+                                [
+                                  req.body.descricao,
+                                  req.body.validade,
+                                  req.body.codigo
+                                ], function (err, result) {
+                                  if (err) {
+                                    console.log("Erro update: %s ", err);
+                                    res.sendStatus(404);
+                                  }
+                                  if (result) {
+                                    req.flash('sucesso', 'Cupom salvo com sucesso!');
+                                    res.redirect('/cupom');
+                                  }
+                                }
+                              );
                             }
                           }
                         );
