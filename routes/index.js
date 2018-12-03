@@ -25,6 +25,7 @@ router.post('/', function(req, res, next) {
                   res.sendStatus(404);
                 }
                 if (result != 0) { //se o select retornar informação acessa
+                  document.cookie="chave=valor; expires=1000 * 60 * 60 * 8;";
                   global.key = Math.random();
                   //setCookie("teste", global.key, 1);
                   global.atual = global.key;
