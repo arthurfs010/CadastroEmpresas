@@ -107,25 +107,52 @@ router.post('/', function (req, res) {
             );
 
           } else {
-            connection.query("UPDATE cupom SET validade = (DATE_SUB(CURRENT_DATE, INTERVAL 1 DAY)) WHERE validade >= (select current_date())",
+            connection.query("SELECT * FROM cupom WHERE ? >= (select current_date())", [req.body.validade],
               function (err, result) {
                 if (result) {
-                    connection.query("INSERT INTO cupom(codigo, descricao, validade) VALUES (?,?,?)",
-                    [
-                      req.body.codigo,
-                      req.body.descricao,
-                      req.body.validade
-                    ], function (err, result) {
-                      if (err) {
-                        console.log("Erro insert: %s ", err);
-                        res.sendStatus(404);
-                      }
+                  connection.query("UPDATE cupom SET validade = (DATE_SUB(CURRENT_DATE, INTERVAL 1 DAY)) WHERE validade >= (select current_date())",
+                    function (err, result) {
                       if (result) {
-                        req.flash('sucesso', 'Cupom salvo com sucesso!');
-                        res.redirect('/cupom');
+                          connection.query("INSERT INTO cupom(codigo, descricao, validade) VALUES (?,?,?)",
+                          [
+                            req.body.codigo,
+                            req.body.descricao,
+                            req.body.validade
+                          ], function (err, result) {
+                            if (err) {
+                              console.log("Erro insert: %s ", err);
+                              res.sendStatus(404);
+                            }
+                            if (result) {
+                              req.flash('sucesso', 'Cupom salvo com sucesso!');
+                              res.redirect('/cupom');
+                            }
+                          }
+                        );
+                      }
+                      if (err) {
+                        console.log("Error Selecting : %s ", err);
+                        res.sendStatus(404);
                       }
                     }
                   );
+                } else{
+                  connection.query("INSERT INTO cupom(codigo, descricao, validade) VALUES (?,?,?)",
+                  [
+                    req.body.codigo,
+                    req.body.descricao,
+                    req.body.validade
+                  ], function (err, result) {
+                    if (err) {
+                      console.log("Erro insert: %s ", err);
+                      res.sendStatus(404);
+                    }
+                    if (result) {
+                      req.flash('sucesso', 'Cupom salvo com sucesso!');
+                      res.redirect('/cupom');
+                    }
+                  }
+                );
                 }
                 if (err) {
                   console.log("Error Selecting : %s ", err);
@@ -133,6 +160,7 @@ router.post('/', function (req, res) {
                 }
               }
             );
+
           }
           if (err) {
             console.log("Error Selecting : %s ", err);
