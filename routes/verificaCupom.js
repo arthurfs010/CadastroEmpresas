@@ -16,18 +16,12 @@ router.get('/', function (req, res, next) {
       connection.query('SELECT codigo, descricao, DATE_FORMAT(validade, "%d/%m/%Y") as validadeLista, validade FROM cupom where validade >= (select current_date())', function (err, rows) {
         if (rows) {
           res.render('verificaCupom', {
-            cupom: rows,
-            sucesso: req.flash('sucesso'),
-            atencao: req.flash('atencao'),
-            erro: req.flash('erro')
+            cupom: rows
           }
           );
         } else {
           res.render('verificaCupom', {
-            cupom: rows,
-            sucesso: req.flash('sucesso'),
-            atencao: req.flash('atencao'),
-            erro: req.flash('erro')
+            cupom: rows
           });
         }
         if (err) {
