@@ -59,11 +59,19 @@
               <h2>Validador de Cupom</h2>
               <div class="clearfix"></div>
             </div>
-            <div class="x_content">
-              <div class="x_title">
-              <h2>Valida Cupom</h2>
-              <div class="clearfix"></div>
-            </div><br/><br/>
+
+            <% if(sucesso.length> 0){%>
+            <div class="alert alert-success">
+              <strong><%= sucesso %></strong>
+            </div>
+            <% } %>
+
+            <% if(erro.length> 0){%>
+            <div class="alert alert-danger">
+              <strong><%= erro %></strong>
+            </div>
+            <% } %>
+
               <form action="" name="formulario" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post">
 
                 <div class="form-group">
@@ -71,7 +79,7 @@
                     <span class="required">*</span>
                   </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="nome" name="nome" type="text" required="required" class="form-control col-md-7 col-xs-12">
+                    <input id="cod_cup" name="cod_cup" type="text" required="required" class="form-control col-md-7 col-xs-12">
                   </div>
                 </div>
 
