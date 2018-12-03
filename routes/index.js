@@ -4,7 +4,13 @@ var router = express.Router();
 /* GET home page. */
 
 router.get('/', function (req, res, next) {
-  res.render('index');
+  if(req.query.fail){
+    res.render('index', { message: 'Usuário e/ou senha incorretos!' });
+  } else{
+    res.render('index', { message: null });
+  }
+
+  //res.render('index');
   erro = 0;
   global.key = 10;
   global.atual = 0;
@@ -25,13 +31,14 @@ router.post('/', function(req, res, next) {
                   res.sendStatus(404);
                 }
                 if (result != 0) { //se o select retornar informação acessa
-                  global.key = Math.random();
+                  passport.authenticate('/', { successRedirect: '/inicio', failureRedirect: '/index?fail=true' });
+                  //global.key = Math.random();
                   //setCookie("teste", global.key, 1);
-                  global.atual = global.key;
-                  res.render('inicio', { title: 'Express' });
+                  //global.atual = global.key;
+                  //res.render('inicio', { title: 'Express' });
 
                 } else { //se o select com login e senha nào funcionar, retorna a index
-                  
+
                   res.render('index');
                 }
               }
