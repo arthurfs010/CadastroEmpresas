@@ -22,13 +22,13 @@ router.get('/', function (req, res, next) {
             erro: req.flash('erro')
           }
           );
-        } else{
+        } else {
           res.render('verificaCupom', {
             cupom: rows,
             sucesso: req.flash('sucesso'),
             atencao: req.flash('atencao'),
             erro: req.flash('erro')
-          }
+          });
         }
         if (err) {
           res.render('error', {
@@ -40,6 +40,7 @@ router.get('/', function (req, res, next) {
       });
     }
 });
+
 });
 
 module.exports = router;
