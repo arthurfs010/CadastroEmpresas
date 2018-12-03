@@ -1,14 +1,3 @@
-var passport = require('passport');
-
-function authenticationMiddleware () {
-  return function (req, res, next) {
-    if (req.isAuthenticated()) {
-      return next()
-    }
-    res.redirect('/index?fail=true')
-  }
-}
-
 window.setTimeout(function() {
   $(".alert-success, .alert-info").fadeTo(500, 0).slideUp(500, function(){
       $(this).remove();
