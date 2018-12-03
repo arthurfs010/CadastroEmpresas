@@ -27,7 +27,7 @@ router.post('/', function (req, res) {
           var cup = req.body.cod_cup;
           console.log(err, rows);
           if (rows.length != 0) {
-            req.flash('sucesso', 'Cupom ', cup ,' aceito!');
+            req.flash('sucesso', 'Cupom aceito!');
             res.redirect('/validaCupom');
           } else {
             req.flash('erro', 'Cupom inválido!');
