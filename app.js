@@ -16,6 +16,7 @@ var cupom = require('./routes/cupom');
 
 var flash = require('connect-flash');
 
+var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -40,8 +41,6 @@ app.use(session({
                   secret: 'woot',
                   resave: true,
                   saveUninitialized: true}));
-
-
 app.use(flash());
 app.use('/', index);
 app.use('/cadastroEmpresa', cadastroEmpresa);
