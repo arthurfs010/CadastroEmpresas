@@ -41,35 +41,60 @@ router.post('/', function (req, res) {
                   connection.query("SELECT * FROM cupom WHERE ? >= (select current_date()) && codigo <> ?", [req.body.validade, req.body.codigo],
                     function (err, rows) {
                       if (rows.length != 0) {
-                          connection.query("UPDATE cupom SET validade = (DATE_SUB(CURRENT_DATE, INTERVAL 1 DAY)) WHERE validade >= (select current_date())",
-                          function (err, result) {
+                          connection.query("UPDATE cupom SET validade = (DATE_SUB(CURRENT_DATE, INTERVAL 1 DAY)) WHERE validade >= (select current_date()); UPDATE cupom SET descricao = ?, validade = ? WHERE codigo = ?",
+                            [
+                              req.body.descricao,
+                              req.body.validade,
+                              req.body.codigo
+                            ], function (err, result) {
+                              if (err) {
+                                console.log("Erro update: %s ", err);
+                                res.sendStatus(404);
+                              }
+                              if (result) {
+                                req.flash('sucesso', 'Cupom salvo com sucesso!');
+                                res.redirect('/cupom');
+                              }
+                            }
+                          );
+                      } else {
+                        connection.query("UPDATE cupom SET descricao = ?, validade = ? WHERE codigo = ?",
+                          [
+                            req.body.descricao,
+                            req.body.validade,
+                            req.body.codigo
+                          ], function (err, result) {
                             if (err) {
-                              console.log("Erro insert: %s ", err);
+                              console.log("Erro update: %s ", err);
                               res.sendStatus(404);
                             }
-                              connection.query("UPDATE cupom SET descricao = ?, validade = ? WHERE codigo = ?",
-                                [
-                                  req.body.descricao,
-                                  req.body.validade,
-                                  req.body.codigo
-                                ], function (err, result) {
-                                  if (err) {
-                                    console.log("Erro update: %s ", err);
-                                    res.sendStatus(404);
-                                  }
-                                  if (result) {
-                                    req.flash('sucesso', 'Cupom salvo com sucesso!');
-                                    res.redirect('/cupom');
-                                  }
-                                }
-                              );
-
+                            if (result) {
+                              req.flash('sucesso', 'Cupom salvo com sucesso!');
+                              res.redirect('/cupom');
+                            }
                           }
                         );
                       }
                       if (err) {
                         console.log("Error Selecting : %s ", err);
                         res.sendStatus(404);
+                      }
+                    }
+                  );
+                } else {
+                  connection.query("UPDATE cupom SET descricao = ?, validade = ? WHERE codigo = ?",
+                    [
+                      req.body.descricao,
+                      req.body.validade,
+                      req.body.codigo
+                    ], function (err, result) {
+                      if (err) {
+                        console.log("Erro update: %s ", err);
+                        res.sendStatus(404);
+                      }
+                      if (result) {
+                        req.flash('sucesso', 'Cupom salvo com sucesso!');
+                        res.redirect('/cupom');
                       }
                     }
                   );
@@ -80,22 +105,7 @@ router.post('/', function (req, res) {
                 }
               }
             );
-            connection.query("UPDATE cupom SET descricao = ?, validade = ? WHERE codigo = ?",
-              [
-                req.body.descricao,
-                req.body.validade,
-                req.body.codigo
-              ], function (err, result) {
-                if (err) {
-                  console.log("Erro update: %s ", err);
-                  res.sendStatus(404);
-                }
-                if (result) {
-                  req.flash('sucesso', 'Cupom salvo com sucesso!');
-                  res.redirect('/cupom');
-                }
-              }
-            );
+
           } else {
             connection.query("UPDATE cupom SET validade = (DATE_SUB(CURRENT_DATE, INTERVAL 1 DAY)) WHERE validade >= (select current_date())",
               function (err, result) {
