@@ -24,9 +24,10 @@ router.post('/', function (req, res) {
     if (connection) {
       connection.query("SELECT * from cupom where codigo = ? and validade >= (select current_date())", [req.body.cod_cup],
         function (err, rows) {
+          var cup = req.body.cod_cup;
           console.log(err, rows);
           if (rows.length != 0) {
-            req.flash('sucesso', 'Cupom aceito!');
+            req.flash('sucesso', 'Cupom ', cup ,' aceito!');
             res.redirect('/validaCupom');
           } else {
             req.flash('erro', 'Cupom inválido!');
