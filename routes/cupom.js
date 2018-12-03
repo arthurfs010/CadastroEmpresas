@@ -108,8 +108,8 @@ router.post('/', function (req, res) {
 
           } else {
             connection.query("SELECT * FROM cupom WHERE ? >= (select current_date())", [req.body.validade],
-              function (err, result) {
-                if (result) {
+              function (err, rows) {
+                if (rows.length != 0) {
                   connection.query("UPDATE cupom SET validade = (DATE_SUB(CURRENT_DATE, INTERVAL 1 DAY)) WHERE validade >= (select current_date())",
                     function (err, result) {
                       if (result) {
@@ -136,7 +136,7 @@ router.post('/', function (req, res) {
                       }
                     }
                   );
-                } else{
+                } else {
                   connection.query("INSERT INTO cupom(codigo, descricao, validade) VALUES (?,?,?)",
                   [
                     req.body.codigo,
