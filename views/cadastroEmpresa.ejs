@@ -269,22 +269,6 @@
                     });
                   }
 
-                  function carregarNoMapa(document.getElementById('end').value) {
-                    geocoder.geocode({ 'address': endereco + ', Brasil', 'region': 'BR' }, function (results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-                        if (results[0]) {
-                          var latitude = results[0].geometry.location.lat();
-                          var longitude = results[0].geometry.location.lng();
-                          var location = new google.maps.LatLng(latitude, longitude);
-
-                          map.setCenter(location);
-                          map.setZoom(16);
-                        }
-                      }
-                    });
-                  }
-
-
                   var contentString = '';
                   var geocoder = new google.maps.Geocoder;
 
@@ -301,6 +285,22 @@
                     });
   									//map.panTo(latLng); //centraliza o mapa no marcador
 									}
+
+                  function carregarNoMapa() {
+                    var geocoder = new google.maps.Geocoder;
+                    geocoder.geocode({ 'address': document.getElementById('latitude').value == "" + ', Brasil', 'region': 'BR' }, function (results, status) {
+                      if (status == google.maps.GeocoderStatus.OK) {
+                        if (results[0]) {
+                          var latitude = results[0].geometry.location.lat();
+                          var longitude = results[0].geometry.location.lng();
+                          var location = new google.maps.LatLng(latitude, longitude);
+
+                          map.setCenter(location);
+                          map.setZoom(16);
+                        }
+                      }
+                    });
+                  }
 
                   map.addListener('click', function(a) { //adiciona o marcador no mapa ao clicar
                   	marker.setMap(null);
@@ -331,6 +331,7 @@
 
 
                 }
+
                 </script>
                 <script async defer
                   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBDSF5tHZTMvVZAifZK5dwS1mMX5gm_oU&callback=initMap">
