@@ -273,7 +273,7 @@
     								marcaLocal(a.latLng, map);
                     //srepl = a.latLng;
                     //latlong = srepl.replace("(", "").replace(")", "");
-                    $('#latitude').val(a.latLng);
+                    $('#latitude').val(a.latLng.lat);
                     $('#longitude').val(a.latLng);
                     infowindow.open(map, marker);
   								});
