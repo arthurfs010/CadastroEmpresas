@@ -250,6 +250,7 @@
                   });
 
                   var contentString = '';
+                  var geocoder = new google.maps.Geocoder;
 
                   var infowindow = new google.maps.InfoWindow({
                   });
@@ -268,10 +269,27 @@
                   map.addListener('click', function(a) { //adiciona o marcador no mapa ao clicar
                   	marker.setMap(null);
     								marcaLocal(a.latLng, map);
+                    geocodeLatLng(geocoder, a.latLng.lat, a.latLng.lng, infowindow);
                     $('#latitude').val(a.latLng.lat);
                     $('#longitude').val(a.latLng.lng);
                     infowindow.open(map, marker);
   								});
+
+                  function geocodeLatLng(geocoder, lat, long, infowindow) {
+                    var latlng = {lat: parseFloat(lat), lng: parseFloat(lng)};
+                    geocoder.geocode({'location': latlng}, function(results, status) {
+                      if (status === 'OK') {
+                        if (results[0]) {
+                          $('#endereco').val(results[0].formatted_address);
+                          
+                        } else {
+                          window.alert('No results found');
+                        }
+                      } else {
+                        window.alert('Geocoder failed due to: ' + status);
+                      }
+                    });
+                  }
 
 
                 }
