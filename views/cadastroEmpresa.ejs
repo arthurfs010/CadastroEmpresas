@@ -250,7 +250,6 @@
                   });
 
                   var contentString = '';
-                  var latlong = "-24.952471356055007,-53.47381354504398";
                   var geocoder = new google.maps.Geocoder;
 
                   var infowindow = new google.maps.InfoWindow({
@@ -270,11 +269,9 @@
                   map.addListener('click', function(a) { //adiciona o marcador no mapa ao clicar
                   	marker.setMap(null);
     								marcaLocal(a.latLng, map);
-                    //latlong = a.latLng.lat + ","+ a.latLng.lng;
                     $('#latitude').val(a.latLng.lat);
                     $('#longitude').val(a.latLng.lng);
                     geocodeLatLng(geocoder, map, infowindow);
-                    infowindow.open(map, marker);
   								});
 
                   function geocodeLatLng(geocoder, map, infowindow) {
@@ -285,6 +282,8 @@
                       if (status === 'OK') {
                         if (results[0]) {
                           $('#endereco').val(results[0].formatted_address);
+                          infowindow.setContent(results[0].formatted_address);
+                          infowindow.open(map, marker);
                         } else {
                           window.alert('No results found');
                         }
