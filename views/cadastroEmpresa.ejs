@@ -252,6 +252,8 @@
 
                   var infowindow = new google.maps.InfoWindow({
                   });
+
+                  var cascavel = {lat: -24.953483, lng: -53.464458};
                   var map = new google.maps.Map(document.getElementById('map'), {
                     map.setCenter(cascavel);
                     map.setZoom(14);
@@ -259,7 +261,6 @@
 
                   if(document.getElementById('end').value == ""){
                     if(document.getElementById('latitude').value == ""){
-                      var cascavel = {lat: -24.953483, lng: -53.464458};
                       map.setCenter(cascavel);
                       map.setZoom(14);
                     } else {
