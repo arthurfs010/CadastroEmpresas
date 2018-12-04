@@ -271,7 +271,8 @@
                   	marker.setMap(null);
     								marcaLocal(a.latLng, map);
                     map.setCenter(marker.getPosition());
-                    $latitude = a.latitude;
+                    $('#latitude').val(a.latitude)
+
                     infowindow.open(map, marker);
   								});
 
