@@ -278,7 +278,8 @@
   								});
 
                   function geocodeLatLng(geocoder, map, infowindow) {
-                    var latlngStr = latlong.split(',', 2);
+                    var input = document.getElementById('latitude').value +","+document.getElementById('longitude').value;
+                    var latlngStr = input.split(',', 2);
                     var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
                     geocoder.geocode({'location': latlng}, function(results, status) {
                       if (status === 'OK') {
