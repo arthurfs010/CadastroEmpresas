@@ -271,7 +271,7 @@
                   map.addListener('click', function(a) { //adiciona o marcador no mapa ao clicar
                   	marker.setMap(null);
     								marcaLocal(a.latLng, map);
-                    srepl = a.latLng
+                    srepl = a.latLng;
                     latlong = srepl.replace("(", "").replace(")", "");
                     $('#latitude').val(latlong);
                     $('#longitude').val(latlong);
