@@ -269,18 +269,7 @@
                       marcaLocal(local, map);
                     }
                   } else {
-                      function carregarNoMapa(geocoder, map);
-                  }
-
-                  var map = new google.maps.Map(document.getElementById('map'), {});
-
-                  if(document.getElementById('latitude').value == ""){
-                    var marker = new google.maps.Marker({
-                    });
-                  } else {
-                    var marker = new google.maps.Marker({
-                      position: cascavel, map: map
-                    });
+                      carregarNoMapa(geocoder, map);
                   }
 
 
