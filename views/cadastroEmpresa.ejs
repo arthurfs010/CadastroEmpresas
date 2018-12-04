@@ -236,9 +236,9 @@
               </div>
             </div>
             <div class="input-group" style="width:100%;" position="relative">
-              <input class="form-control" type="text" placeholder="Digite um endereço:" />
+              <input class="form-control" type="text" id="end" name="end" placeholder="Digite um endereço:" />
               <div class="input-group-btn">
-                <button class="btn btn-default" type="submit">Buscar</button>
+                <button class="btn btn-default" type="submit" onclick="carregarNoMapa()">Buscar</button>
               </div>
             </div>
 
@@ -266,6 +266,21 @@
                   } else {
                     var marker = new google.maps.Marker({
                       position: cascavel, map: map
+                    });
+                  }
+
+                  function carregarNoMapa(document.getElementById('end').value) {
+                    geocoder.geocode({ 'address': endereco + ', Brasil', 'region': 'BR' }, function (results, status) {
+                      if (status == google.maps.GeocoderStatus.OK) {
+                        if (results[0]) {
+                          var latitude = results[0].geometry.location.lat();
+                          var longitude = results[0].geometry.location.lng();
+                          var location = new google.maps.LatLng(latitude, longitude);
+
+                          map.setCenter(location);
+                          map.setZoom(16);
+                        }
+                      }
                     });
                   }
 
