@@ -270,15 +270,15 @@
                   map.addListener('click', function(a) { //adiciona o marcador no mapa ao clicar
                   	marker.setMap(null);
     								marcaLocal(a.latLng, map);
-                    latlong = a.latLng.lat + ","+ a.latLng.lng;
-                    var latlngStr = latlong.split(',', 2);
-                    geocodeLatLng(geocoder, map, infowindow);
+                    //latlong = a.latLng.lat + ","+ a.latLng.lng;
                     $('#latitude').val(a.latLng.lat);
                     $('#longitude').val(a.latLng.lng);
+                    geocodeLatLng(geocoder, map, infowindow);
                     infowindow.open(map, marker);
   								});
 
                   function geocodeLatLng(geocoder, map, infowindow) {
+                    var latlngStr = latlong.split(',', 2);
                     var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
                     geocoder.geocode({'location': latlng}, function(results, status) {
                       if (status === 'OK') {
@@ -288,7 +288,7 @@
                           window.alert('No results found');
                         }
                       } else {
-                        window.alert('Geocoder failed due to: ' + status + ', '+ latlngStr);
+                        window.alert('Geocoder failed due to: ' + status + ', '+ latlong);
                       }
                     });
                   }
