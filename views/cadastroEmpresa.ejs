@@ -258,16 +258,16 @@
                   });
 
                   if(document.getElementById('end').value == ""){
-                    carregarNoMapa(geocoder, map);
-                  } else {
-                      if(document.getElementById('latitude').value == ""){
-                        var cascavel = {lat: -24.953483, lng: -53.464458};
-                      } else {
-                        var input = document.getElementById('latitude').value +","+document.getElementById('longitude').value;
-                        var latlngStr = input.split(',', 2);
-                        var cascavel = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
+                    if(document.getElementById('latitude').value == ""){
+                      var cascavel = {lat: -24.953483, lng: -53.464458};
+                    } else {
+                      var input = document.getElementById('latitude').value +","+document.getElementById('longitude').value;
+                      var latlngStr = input.split(',', 2);
+                      var cascavel = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
 
-                      }
+                    }
+                  } else {
+                      function carregarNoMapa(geocoder, map);
                   }
 
 
