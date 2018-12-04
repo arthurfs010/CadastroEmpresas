@@ -288,7 +288,7 @@
 
                   function carregarNoMapa() {
                     var geocoder = new google.maps.Geocoder;
-                    geocoder.geocode({ 'address': document.getElementById('latitude').value == "" + ', Brasil', 'region': 'BR' }, function (results, status) {
+                    geocoder.geocode({ 'address': document.getElementById('end').value == "" + ', Brasil', 'region': 'BR' }, function (results, status) {
                       if (status == google.maps.GeocoderStatus.OK) {
                         if (results[0]) {
                           var latitude = results[0].geometry.location.lat();
