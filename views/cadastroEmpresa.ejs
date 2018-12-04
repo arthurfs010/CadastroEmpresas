@@ -236,7 +236,7 @@
               </div>
             </div>
             <div class="input-group" style="width:100%;" position="relative">
-              <input class="form-control" type="text" placeholder="Digite um endereço" />
+              <input class="form-control" type="text" placeholder="Digite um endereço:" />
               <div class="input-group-btn">
                 <button class="btn btn-default" type="submit">Buscar</button>
               </div>
@@ -260,10 +260,14 @@
 
                   });
 
-
-                  var marker = new google.maps.Marker({
-                    position: cascavel, map: map
-                  });
+                  if(document.getElementById('latitude').value == ""){
+                    var marker = new google.maps.Marker({
+                    });
+                  } else {
+                    var marker = new google.maps.Marker({
+                      position: cascavel, map: map
+                    });
+                  }
 
 
                   var contentString = '';
