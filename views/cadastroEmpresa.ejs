@@ -257,7 +257,7 @@
                   var infowindow = new google.maps.InfoWindow({
                   });
 
-                  if(document.getElementById('end').value != ""){
+                  if(document.getElementById('end').value == ""){
                     carregarNoMapa(geocoder, map);
                   } else {
                       if(document.getElementById('latitude').value == ""){
