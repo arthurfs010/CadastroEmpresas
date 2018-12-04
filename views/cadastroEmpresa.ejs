@@ -265,13 +265,14 @@
   									//map.panTo(latLng); //centraliza o mapa no marcador
 									}
 
-
+                  var srepl = '';
+                  var latlong = '';
 
                   map.addListener('click', function(a) { //adiciona o marcador no mapa ao clicar
                   	marker.setMap(null);
     								marcaLocal(a.latLng, map);
-                    var srepl = a.latLng
-                    var latlong = srepl.replace('(', '').replace(')', '');
+                    srepl = a.latLng
+                    latlong = srepl.replace("(", "").replace(")", "");
                     $('#latitude').val(latlong);
                     $('#longitude').val(latlong);
                     infowindow.open(map, marker);
