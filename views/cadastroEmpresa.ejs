@@ -239,7 +239,7 @@
                 <div id="map"></div>
                 <script>
                 function initMap() {
-                  if(document.getElementById('latitude').value == ""){
+                  if(document.getElementById('latitude').value == "Selecione no mapa..."){
                     var cascavel = {lat: -24.953483, lng: -53.464458};
                   } else {
                     var input = document.getElementById('latitude').value +","+document.getElementById('longitude').value;
@@ -251,11 +251,6 @@
                     zoom: 14,
                     center: cascavel,
 
-                  });
-
-
-                  var marker = new google.maps.Marker({
-                    position: cascavel, map: map
                   });
 
                   var contentString = '';
