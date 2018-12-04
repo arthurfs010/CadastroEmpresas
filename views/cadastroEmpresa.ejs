@@ -246,34 +246,34 @@
 
                 <script>
                 function initMap() {
+                  if(document.getElementById('latitude').value == ""){
+                    var cascavel = {lat: -24.953483, lng: -53.464458};
+                  } else {
+                    var input = document.getElementById('latitude').value +","+document.getElementById('longitude').value;
+                    var latlngStr = input.split(',', 2);
+                    var cascavel = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
+
+                  }
+                  var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 14,
+                    center: cascavel,
+
+                  });
+
+                  if(document.getElementById('latitude').value == ""){
+                    var marker = new google.maps.Marker({
+                    });
+                  } else {
+                    var marker = new google.maps.Marker({
+                      position: cascavel, map: map
+                    });
+                  }
 
                   var contentString = '';
                   var geocoder = new google.maps.Geocoder;
 
                   var infowindow = new google.maps.InfoWindow({
                   });
-
-                  var cascavel = {lat: -24.953483, lng: -53.464458};
-                  var map = new google.maps.Map(document.getElementById('map'), {
-                    map.setCenter(cascavel);
-                    map.setZoom(14);
-                  });
-
-                  if(document.getElementById('end').value == ""){
-                    if(document.getElementById('latitude').value == ""){
-                      map.setCenter(cascavel);
-                      map.setZoom(14);
-                    } else {
-                      var input = document.getElementById('latitude').value +","+document.getElementById('longitude').value;
-                      var latlngStr = input.split(',', 2);
-                      var local = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
-                      marcaLocal(local, map);
-                    }
-                  } else {
-                      carregarNoMapa(geocoder, map);
-                  }
-
-
                   function marcaLocal(latLng, map) { //cria o marcador no local
                   	marker = new google.maps.Marker({
     									position: latLng,
@@ -285,6 +285,7 @@
                     });
   									//map.panTo(latLng); //centraliza o mapa no marcador
 									}
+                  carregarNoMapa(geocoder, map);
 
                   function carregarNoMapa(geocoder, map) {
                     geocoder.geocode({ 'address': document.getElementById('end').value + ', Brasil', 'region': 'BR' }, function (results, status) {
@@ -296,9 +297,6 @@
 
                           map.setCenter(location);
                           map.setZoom(16);
-                        } else {
-                          map.setCenter(cascavel);
-                          map.setZoom(14);
                         }
                       }
                     });
