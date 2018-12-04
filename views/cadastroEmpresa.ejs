@@ -269,7 +269,7 @@
                   map.addListener('click', function(a) { //adiciona o marcador no mapa ao clicar
                   	marker.setMap(null);
     								marcaLocal(a.latLng, map);
-                    latlong = a.latLng.lat + ','+ a.latLng.lng;
+                    latlong = a.latLng.lat + ","+ a.latLng.lng;
                     geocodeLatLng(geocoder, map, infowindow);
                     $('#latitude').val(a.latLng.lat);
                     $('#longitude').val(a.latLng.lng);
