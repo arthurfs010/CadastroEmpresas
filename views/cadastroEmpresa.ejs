@@ -235,14 +235,15 @@
                 <input type="text" id="longitude" name="longitude" readonly="true" required="required" placeholder="Selecione no mapa..." class="form-control col-md-7 col-xs-12" >
               </div>
             </div>
-            <div class="input-group" style="width:50%;" position="relative">
+            <div class="input-group" style="width:100%;" position="relative">
               <input class="form-control" type="text" placeholder="Digite um endereço" />
               <div class="input-group-btn">
                 <button class="btn btn-default" type="submit">Buscar</button>
               </div>
-            </div>
+
 
                 <div id="map"></div>
+            </div>
                 <script>
                 function initMap() {
                   if(document.getElementById('latitude').value == ""){
