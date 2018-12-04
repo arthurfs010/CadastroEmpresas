@@ -66,6 +66,7 @@ function limpa_campos(){
    document.getElementById('id_empresa').value = "";
    document.getElementById('latitude').value = "";
    document.getElementById('longitude').value = "";
+   document.getElementById('end').value = "";
 }
 
 function zera_global(){
