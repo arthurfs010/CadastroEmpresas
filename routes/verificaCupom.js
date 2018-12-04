@@ -13,7 +13,7 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
   req.getConnection(function (err, connection) {
     if (connection) {
-      connection.query('SELECT codigo, descricao, DATE_FORMAT(validade, "%d/%m/%Y") as validadeLista, validade FROM cupom where validade >= (select current_date())', function (err, rows) {
+      connection.query('SELECT UPPER(codigo), descricao, DATE_FORMAT(validade, "%d/%m/%Y") as validadeLista, validade FROM cupom where validade >= (select current_date())', function (err, rows) {
         if (rows) {
           res.render('verificaCupom', {
             cupom: rows

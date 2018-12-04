@@ -113,7 +113,7 @@ router.post('/', function (req, res) {
                   connection.query("UPDATE cupom SET validade = (DATE_SUB(CURRENT_DATE, INTERVAL 1 DAY)) WHERE validade >= (select current_date())",
                     function (err, result) {
                       if (result) {
-                          connection.query("INSERT INTO cupom(codigo, descricao, validade) VALUES (UPPER(?),?,?)",
+                          connection.query("INSERT INTO cupom(codigo, descricao, validade) VALUES (?,?,?)",
                           [
                             req.body.codigo,
                             req.body.descricao,
