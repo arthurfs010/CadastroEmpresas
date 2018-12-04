@@ -293,6 +293,7 @@
 
                   function carregarNoMapa(geocoder, map) {
                     var geocoder = new google.maps.Geocoder;
+                    marker.setMap(null);
                     geocoder.geocode({ 'address': document.getElementById('end').value +', Brasil', 'region': 'BR' }, function (results, status) {
                       if (status == "OK") {
                         if (results[0]) {
