@@ -246,7 +246,7 @@
 
                 <script>
                 function initMap() {
-
+                  var map = new google.maps.Map(document.getElementById('map'), {});
                   var contentString = '';
                   var geocoder = new google.maps.Geocoder;
 
@@ -256,21 +256,20 @@
                   if(document.getElementById('end').value == ""){
                     if(document.getElementById('latitude').value == ""){
                       var cascavel = {lat: -24.953483, lng: -53.464458};
+                      map.setCenter(cascavel);
+                      map.setZoom(14);
                     } else {
                       var input = document.getElementById('latitude').value +","+document.getElementById('longitude').value;
                       var latlngStr = input.split(',', 2);
                       var cascavel = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
-
+                      map.setCenter(cascavel);
+                      map.setZoom(14);
                     }
                   } else {
                       function carregarNoMapa(geocoder, map);
                   }
 
-                  var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 14,
-                    center: cascavel,
 
-                  });
 
 
                   if(document.getElementById('latitude').value == ""){
@@ -305,6 +304,9 @@
 
                           map.setCenter(location);
                           map.setZoom(16);
+                        } else {
+                          map.setCenter(cascavel);
+                          map.setZoom(14);
                         }
                       }
                     });
